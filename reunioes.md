@@ -11,7 +11,8 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | Período | Tarefa | Estado |
 |---|---|---|
 | 30/09 – 04/10 | Criar o repositório e coordenar com os grupos do DEISI2256 e DEISI2258 (estrutura dos repositórios, base de dados, backend) | Em curso |
-| 05/10 – 16/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Por iniciar |
+| 02/10 – 09/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT | Em curso |
+| 05/10 – 16/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Em curso |
 | 19/10 – 06/11 | Divulgar o inquérito e recolher respostas | Por iniciar |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
@@ -37,7 +38,13 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 |---|---|---|
 | 28/09/2026 | Análise da plataforma atual e primeiro rascunho das perguntas do inquérito | Perguntas organizadas por blocos, associados a cada um dos três TFC |
 | 30/09/2026 | Reunião com o orientador | Ver Reunião 1 |
-| 30/09/2026 | Criação do repositório na organização ULHT-TFC-new | registo do projeto |
+| 30/09/2026 | Criação do repositório na organização ULHT-TFC-new | Registo do projeto |
+| 02/10/2026 | Pedido do orientador para elaborar a lista de processos da plataforma | Por email, seguindo o método de ERT |
+| 03/10/2026 | Elaboração da lista inicial de processos da plataforma | Macro-processos e processos (nível mezzo) |
+| 03/10/2026 | Criação do inquérito em Microsoft Forms | Três perfis, com ramificação; respostas anónimas e limitadas a contas da Lusófona |
+| 05/10/2026 | Envio do inquérito ao orientador para validação | Link de colaboração e documento com a estrutura do inquérito |
+| 06/10/2026 | Comparação e correção da lista de processos elaborada pelo colega | Adotada como lista comum; corrigidas referências ao regulamento |
+| 07/10/2026 | Reunião entre os grupos sobre o inquérito | Ver Reunião 2 |
 
 ---
 
@@ -72,4 +79,25 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 
 #### Próximos passos
 - [ ] Coordenar com os grupos do DEISI2256 e DEISI2258 a estrutura dos repositórios e a divisão da base de dados e do backend.
-- [ ] Finalizar o inquérito em conjunto com o outro grupo e validá-lo com o orientador.
+- [x] Finalizar o inquérito em conjunto com o outro grupo e validá-lo com o orientador. *(inquérito enviado a 05/10; correções identificadas na Reunião 2)*
+
+---
+
+### Reunião 2 — 07/10/2026
+
+**Tipo:** Reunião entre os grupos (reunião curta)
+**Participantes:** Tomás Cruz (DEISI2257) e os alunos dos TFC DEISI2256 e DEISI2258
+
+#### Pontos discutidos
+
+**Inquérito**
+- Revisão conjunta do inquérito sobre a plataforma de gestão de TFC.
+- Foram identificadas perguntas em falta e correções a fazer antes da divulgação.
+
+#### Decisões
+- O inquérito só é divulgado depois de aplicadas as correções e os acrescentos identificados.
+
+#### Próximos passos
+- [ ] Aplicar ao inquérito as correções e os acrescentos discutidos.
+- [ ] Testar novamente os três percursos do inquérito (um por perfil).
+- [ ] Enviar a versão corrigida ao orientador.
