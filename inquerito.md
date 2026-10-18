@@ -46,7 +46,7 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 
 ### Escalas usadas
 
-- **Escala de 1 a 5:** os extremos estão indicados em cada pergunta (ex.: 1 = Muito difícil, 5 = Muito fácil).
+- **Escala de 1 a 5:** os extremos estão indicados em cada pergunta (ex.: 1 = Muito difícil, 5 = Muito fácil). A pergunta está sempre escrita de forma alinhada com a escala (ex.: "Quão fácil…?" → Muito difícil a Muito fácil).
 - **Não se aplica:** incluído nas perguntas sobre funcionalidades que a pessoa pode não ter usado.
 - Perguntas abertas são sempre **opcionais**; as restantes são obrigatórias.
 
@@ -84,8 +84,8 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 - Jurado em avaliações finais
 - Coordenação de TFC
 
-**P6. Consegue ter uma visão geral do estado dos TFC que orienta (entregas, prazos, notas)?** *(escala 1–5 + Não se aplica)*
-1 = Nada · 5 = Totalmente
+**P6. Quão fácil é acompanhar, na plataforma, o estado dos TFC que orienta (entregas, prazos, notas)?** *(escala 1–5 + Não se aplica)*
+1 = Muito difícil · 5 = Muito fácil
 
 **P7. Preencher o formulário de avaliação na plataforma é…** *(escala 1–5 + Não se aplica)*
 1 = Muito difícil · 5 = Muito fácil
@@ -121,7 +121,7 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 
 ### Secção 4 — Alunos: Entregas e avaliação
 
-**P12. Ao longo do TFC, sabia quando era a próxima entrega e o que tinha de entregar?** *(escala 1–5)*
+**P12. Ao longo do TFC, com que frequência sabia qual era a próxima etapa ou prazo a cumprir?** *(escala 1–5)*
 1 = Nunca · 5 = Sempre
 
 **P13. Onde ia buscar essa informação?** *(escolha múltipla)*
@@ -132,17 +132,17 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 - Colegas
 - Outra: ___
 
-**P14. O processo de entrega de relatórios na plataforma foi claro?** *(escala 1–5)*
+**P14. Quão claro foi o processo de entrega de relatórios na plataforma?** *(escala 1–5)*
 1 = Nada claro · 5 = Muito claro
 
 **P15. Alguma vez teve dúvidas sobre se o relatório cumpria a estrutura ou a formatação exigidas?** *(escolha única)*
 - Sim
 - Não
 
-**P16. Seria útil a plataforma verificar automaticamente a estrutura do relatório antes da entrega?** *(escala 1–5)*
+**P16. Quão útil seria a plataforma verificar automaticamente a estrutura do relatório antes da entrega?** *(escala 1–5)*
 1 = Nada útil · 5 = Muito útil
 
-**P17. Os resultados e comentários das avaliações foram apresentados de forma clara?** *(escala 1–5)*
+**P17. Quão claros foram os resultados e comentários das avaliações apresentados na plataforma?** *(escala 1–5)*
 1 = Nada claros · 5 = Muito claros
 
 **P18. Depois de cada avaliação, que informação gostaria de ver?** *(escolha múltipla)*
@@ -153,7 +153,7 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 - Simulação da nota final com as notas já obtidas
 - Outra: ___
 
-**P19. Seria útil acompanhar na plataforma as suas presenças nos seminários?** *(escala 1–5)*
+**P19. Quão útil seria acompanhar na plataforma as suas presenças nos seminários?** *(escala 1–5)*
 1 = Nada útil · 5 = Muito útil
 
 > Depois desta secção: **seguir para a Secção 5**.
@@ -162,7 +162,7 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 
 ### Secção 5 — Alunos: Propostas e candidatura
 
-**P20. Foi fácil encontrar TFC do seu interesse na lista de propostas?** *(escala 1–5)*
+**P20. Quão fácil foi encontrar TFC do seu interesse na lista de propostas?** *(escala 1–5)*
 1 = Muito difícil · 5 = Muito fácil
 
 **P21. Que filtros lhe fariam falta na lista de propostas?** *(escolha múltipla)*
@@ -175,12 +175,12 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 - Nenhum
 - Outro: ___
 
-**P22. A informação disponível em cada TFC foi suficiente para decidir?** *(escala 1–5)*
-1 = Nada suficiente · 5 = Totalmente suficiente
+**P22. Em que medida a informação disponível em cada TFC foi suficiente para decidir?** *(escala 1–5)*
+1 = Muito pouco · 5 = Completamente
 
 **P23. Que informação faltou?** *(resposta aberta, opcional)*
 
-**P24. Foi claro como definir e alterar a ordem de preferência das escolhas?** *(escala 1–5)*
+**P24. Quão claro foi definir e alterar a ordem de preferência das escolhas?** *(escala 1–5)*
 1 = Nada claro · 5 = Muito claro
 
 **P25. Percebeu o que significava o estado da sua candidatura (por exemplo, "À espera de publicação")?** *(escolha única)*
@@ -200,40 +200,40 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 - Só em momentos específicos (candidaturas, entregas, avaliações)
 - Raramente
 
-**P27. Que dispositivo usa mais para aceder à plataforma?** *(escolha única)*
-- Computador
-- Telemóvel
-- Tablet
+**P27. Como avalia a utilização da plataforma em cada um destes equipamentos?** *(tabela / escala Likert: uma linha por equipamento)*
 
-**P28. Ao entrar na plataforma, percebe rapidamente o que tem de fazer a seguir?** *(escala 1–5)*
-1 = Nada · 5 = Totalmente
+| Equipamento | Muito má | Má | Razoável | Boa | Muito boa | Não uso |
+|---|---|---|---|---|---|---|
+| Computador | | | | | | |
+| Telemóvel | | | | | | |
+| Tablet | | | | | | |
+
+**P28. Quão fácil é perceber, ao entrar na plataforma, o que tem de fazer a seguir?** *(escala 1–5)*
+1 = Muito difícil · 5 = Muito fácil
 
 **P29. Que informação gostaria de ver logo na página inicial?** *(escolha múltipla)*
-- Próximos prazos
+- Linha temporal com todas as etapas e prazos do TFC
 - Estado do meu TFC / dos TFC que acompanho
 - Tarefas pendentes
 - Avisos da coordenação
 - Presenças em seminários
 - Outra: ___
 
-**P30. Os nomes dos menus (Propostas de TFCs, Inscrição TFCs, Avaliação) são claros?** *(escala 1–5)*
+**P30. Quão claros são os nomes dos menus (Propostas de TFCs, Inscrição TFCs, Avaliação)?** *(escala 1–5)*
 1 = Nada claros · 5 = Muito claros
 
-**P31. Como avalia a utilização da plataforma no telemóvel?** *(escala 1–5 + Nunca usei)*
-1 = Muito má · 5 = Muito boa
-
-**P32. Em geral, qual o seu grau de satisfação com a plataforma?** *(escala 1–5)*
+**P31. Em geral, qual o seu grau de satisfação com a plataforma?** *(escala 1–5)*
 1 = Muito insatisfeito · 5 = Muito satisfeito
 
 ---
 
 ### Secção 7 — Sugestões finais (todos)
 
-**P33. Qual foi a maior dificuldade que teve ao usar a plataforma?** *(resposta aberta, opcional)*
+**P32. Qual foi a maior dificuldade que teve ao usar a plataforma?** *(resposta aberta, opcional)*
 
-**P34. Se pudesse mudar uma coisa na plataforma, qual seria?** *(resposta aberta, opcional)*
+**P33. Se pudesse mudar uma coisa na plataforma, qual seria?** *(resposta aberta, opcional)*
 
-**P35. Que funcionalidade nova gostaria de ver na plataforma?** *(resposta aberta, opcional)*
+**P34. Que funcionalidade nova gostaria de ver na plataforma?** *(resposta aberta, opcional)*
 
 ---
 
@@ -246,5 +246,5 @@ O formulário tem 7 secções. A pergunta P1 encaminha cada perfil para o seu pe
 | 4 | P12–P14, P17–P19 | **DEISI2257** |
 | 4 | P15–P16 | DEISI2258 (validação de entregáveis) |
 | 5 | P20–P25 | DEISI2256 |
-| 6 | P26–P32 | DEISI2256 (todos) |
-| 7 | P33–P35 | Todos |
+| 6 | P26–P31 | DEISI2256 (todos) |
+| 7 | P32–P34 | Todos |
