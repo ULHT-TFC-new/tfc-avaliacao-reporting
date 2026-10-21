@@ -11,9 +11,9 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | Período | Tarefa | Estado |
 |---|---|---|
 | 30/09 – 04/10 | Criar o repositório e coordenar com os grupos do DEISI2256 e DEISI2258 (estrutura dos repositórios, base de dados, backend) | Em curso |
-| 02/10 – 09/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT | Em curso |
-| 05/10 – 16/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Em curso |
-| 19/10 – 06/11 | Divulgar o inquérito e recolher respostas | Por iniciar |
+| 02/10 – 18/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT, e revê-la com o orientador | Concluído |
+| 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
+| 20/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (preparação da publicação) |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
 | 16/11 – 29/11 | Arquitetura, mockups e configuração do ambiente (contentores Docker) | Por iniciar |
@@ -45,6 +45,13 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 05/10/2026 | Envio do inquérito ao orientador para validação | Link de colaboração e documento com a estrutura do inquérito |
 | 06/10/2026 | Comparação e correção da lista de processos elaborada pelo colega | Adotada como lista comum; corrigidas referências ao regulamento |
 | 07/10/2026 | Reunião entre os grupos sobre o inquérito | Ver Reunião 2 |
+| 14/10/2026 | Feedback do orientador, por email, sobre o percurso de aluno do inquérito | Percurso aprovado; apagadas as respostas de teste e desativada temporariamente a opção "uma resposta por pessoa" para o orientador testar os outros perfis |
+| 14/10/2026 | Reunião com o orientador | Ver Reunião 3 (sem a participação de Tomás Cruz) |
+| 14/10/2026 | Sugestões do orientador, por email, para os restantes perfis do inquérito | Pergunta sobre o calendário do TFC, alinhamento das perguntas com as escalas, linha temporal de prazos, tabela de avaliação por equipamento |
+| 16/10/2026 | Aplicação das alterações ao inquérito e envio ao orientador | — |
+| 18/10/2026 | Correção da lista de processos depois da revisão do orientador | Acrescentado o processo de configuração do modelo de avaliação (P-01.3) e corrigidas regras de candidatura, seleção e desistência |
+| 20/10/2026 | Aprovação do inquérito pelo orientador para publicação | Pedido de uma nota introdutória para cada audiência; no relatório, anexar o inquérito com nota prévia sobre o uso de IA |
+| 20/10/2026 | Preparação da publicação do inquérito | Notas de divulgação para alunos a iniciar o TFC, alunos que já o realizaram e docentes |
 
 ---
 
@@ -98,6 +105,32 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - O inquérito só é divulgado depois de aplicadas as correções e os acrescentos identificados.
 
 #### Próximos passos
-- [ ] Aplicar ao inquérito as correções e os acrescentos discutidos.
-- [ ] Testar novamente os três percursos do inquérito (um por perfil).
-- [ ] Enviar a versão corrigida ao orientador.
+- [x] Aplicar ao inquérito as correções e os acrescentos discutidos.
+- [x] Testar novamente os três percursos do inquérito (um por perfil).
+- [x] Enviar a versão corrigida ao orientador.
+
+---
+
+### Reunião 3 — 14/10/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador) e os alunos dos TFC DEISI2256 e DEISI2258. Tomás Cruz (DEISI2257) não pôde participar; os pontos abaixo foram obtidos junto dos colegas e pelos emails do orientador.
+
+#### Pontos discutidos
+
+**Lista de processos**
+- Revisão da lista de processos da plataforma pelo orientador, com indicação do que alterar e melhorar.
+
+**Inquérito**
+- Revisão do inquérito pelo orientador. O percurso de aluno já tinha sido aprovado por email; as sugestões para os restantes perfis foram enviadas por email no mesmo dia.
+
+#### Decisões
+- Aplicar à lista de processos as alterações indicadas pelo orientador.
+- Aplicar ao inquérito as sugestões do orientador antes da publicação.
+
+#### Próximos passos
+- [x] Corrigir a lista de processos (18/10).
+- [x] Aplicar as alterações ao inquérito e enviá-lo ao orientador (16/10).
+- [ ] Preparar o formulário para publicação (reativar "uma resposta por pessoa", apagar respostas de teste, definir data de fim).
+- [ ] Publicar o inquérito com as notas de divulgação para cada audiência.
+- [ ] Guardar a informação sobre o uso de IA na elaboração do inquérito, para a nota prévia do anexo do relatório.
