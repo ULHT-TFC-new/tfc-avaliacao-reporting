@@ -13,7 +13,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 30/09 – 04/10 | Criar o repositório e coordenar com os grupos do DEISI2256 e DEISI2258 (estrutura dos repositórios, base de dados, backend) | Em curso |
 | 02/10 – 18/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT, e revê-la com o orientador | Concluído |
 | 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
-| 20/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (preparação da publicação) |
+| 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (a recolher respostas) |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
 | 16/11 – 29/11 | Arquitetura, mockups e configuração do ambiente (contentores Docker) | Por iniciar |
@@ -52,6 +52,9 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 18/10/2026 | Correção da lista de processos depois da revisão do orientador | Acrescentado o processo de configuração do modelo de avaliação (P-01.3) e corrigidas regras de candidatura, seleção e desistência |
 | 20/10/2026 | Aprovação do inquérito pelo orientador para publicação | Pedido de uma nota introdutória para cada audiência; no relatório, anexar o inquérito com nota prévia sobre o uso de IA |
 | 20/10/2026 | Preparação da publicação do inquérito | Notas de divulgação para alunos a iniciar o TFC, alunos que já o realizaram e docentes |
+| 21/10/2026 | Reunião para publicação do inquérito | Ver Reunião 4 |
+| 21/10/2026 | Envio das notas de divulgação ao orientador e publicação do inquérito | Formulário preparado: uma resposta por pessoa, respostas de teste apagadas, data de fim definida |
+| 26/10/2026 | Ponto de situação das respostas enviado ao orientador | 32 alunos a iniciar o TFC, 0 alunos que já o realizaram, 3 docentes; pedido de reforço junto dos docentes e proposta de segundo pedido, sem autenticação, para os alunos que já realizaram o TFC |
 
 ---
 
@@ -131,6 +134,29 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 #### Próximos passos
 - [x] Corrigir a lista de processos (18/10).
 - [x] Aplicar as alterações ao inquérito e enviá-lo ao orientador (16/10).
-- [ ] Preparar o formulário para publicação (reativar "uma resposta por pessoa", apagar respostas de teste, definir data de fim).
-- [ ] Publicar o inquérito com as notas de divulgação para cada audiência.
+- [x] Preparar o formulário para publicação (reativar "uma resposta por pessoa", apagar respostas de teste, definir data de fim).
+- [x] Publicar o inquérito com as notas de divulgação para cada audiência (21/10).
 - [ ] Guardar a informação sobre o uso de IA na elaboração do inquérito, para a nota prévia do anexo do relatório.
+
+---
+
+### Reunião 4 — 21/10/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e os alunos dos TFC DEISI2256 e DEISI2258
+
+#### Pontos discutidos
+
+**Inquérito**
+- Preparação final e publicação do inquérito sobre a plataforma de gestão de TFC.
+
+#### Decisões
+- O inquérito é publicado com autenticação por conta da Lusófona, para controlar as respostas (uma por pessoa).
+- Se houver poucas respostas, retira-se esta limitação e faz-se um segundo pedido.
+
+#### Próximos passos
+- [x] Publicar o inquérito (21/10).
+- [ ] Acompanhar o número de respostas por perfil.
+- [ ] Reforçar o pedido junto dos docentes (através do orientador).
+- [ ] Decidir com o orientador o segundo pedido, sem autenticação, para os alunos que já realizaram o TFC.
+- [ ] Iniciar a análise exploratória dos resultados depois do fecho do inquérito.
