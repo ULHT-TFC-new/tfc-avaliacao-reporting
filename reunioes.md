@@ -150,9 +150,23 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 **Inquérito**
 - Preparação final e publicação do inquérito sobre a plataforma de gestão de TFC.
 
+**Base de dados**
+- A base de dados vai ser feita de raiz.
+- Avaliar alternativas ao MySQL, com a migração para PostgreSQL.
+- A base de dados tem de ser acessível remotamente.
+- A lógica que diz respeito aos dados deve ficar na própria base de dados (por exemplo, com triggers).
+- Em vez de muitas funções separadas, deve existir uma função que desencadeie as restantes operações.
+
+**Desenvolvimento**
+- Reutilizar código existente em vez de o reescrever.
+- Os processos devem seguir uma lógica linear.
+- Modelar como máquinas de estados a candidatura e o tema (proposta).
+- O diagrama de classes é feito depois dos processos.
+
 #### Decisões
 - O inquérito é publicado com autenticação por conta da Lusófona, para controlar as respostas (uma por pessoa).
 - Se houver poucas respostas, retira-se esta limitação e faz-se um segundo pedido.
+- A base de dados será feita de raiz em PostgreSQL, com a lógica de dados implementada na própria base de dados.
 
 #### Próximos passos
 - [x] Publicar o inquérito (21/10).
@@ -160,3 +174,6 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [ ] Reforçar o pedido junto dos docentes (através do orientador).
 - [ ] Decidir com o orientador o segundo pedido, sem autenticação, para os alunos que já realizaram o TFC.
 - [ ] Iniciar a análise exploratória dos resultados depois do fecho do inquérito.
+- [ ] Definir as máquinas de estados da candidatura e do tema (proposta).
+- [ ] Elaborar o diagrama de classes, depois de concluídos os processos.
+- [ ] Preparar o acesso remoto à base de dados PostgreSQL.
