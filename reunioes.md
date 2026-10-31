@@ -14,6 +14,8 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 02/10 – 18/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT, e revê-la com o orientador | Concluído |
 | 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
 | 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (a recolher respostas) |
+| 28/10 – 31/10 | Rever a lista de processos com as indicações da Reunião 5 | Concluído (questões em aberto por esclarecer) |
+| 28/10 – 15/11 | Mockups das candidaturas e das avaliações | Por iniciar |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
 | 16/11 – 29/11 | Arquitetura, mockups e configuração do ambiente (contentores Docker) | Por iniciar |
@@ -55,6 +57,10 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 21/10/2026 | Reunião para publicação do inquérito | Ver Reunião 4 |
 | 21/10/2026 | Envio das notas de divulgação ao orientador e publicação do inquérito | Formulário preparado: uma resposta por pessoa, respostas de teste apagadas, data de fim definida |
 | 26/10/2026 | Ponto de situação das respostas enviado ao orientador | 32 alunos a iniciar o TFC, 0 alunos que já o realizaram, 3 docentes; pedido de reforço junto dos docentes e proposta de segundo pedido, sem autenticação, para os alunos que já realizaram o TFC |
+| 28/10/2026 | Nota prévia sobre o uso de IA na elaboração do inquérito | Para o anexo do inquérito no relatório; a parte da análise fica para depois |
+| 28/10/2026 | Ponto de situação das respostas | 32 alunos a iniciar o TFC, 0 alunos que já o realizaram, 8 docentes |
+| 28/10/2026 | Reunião com o orientador | Ver Reunião 5 |
+| 31/10/2026 | Revisão da lista de processos com as indicações da Reunião 5 | Alterações feitas pelo colega; acrescentada a secção de questões em aberto e corrigidas as regras de créditos, de publicação de propostas e de junção de alunos |
 
 ---
 
@@ -136,7 +142,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [x] Aplicar as alterações ao inquérito e enviá-lo ao orientador (16/10).
 - [x] Preparar o formulário para publicação (reativar "uma resposta por pessoa", apagar respostas de teste, definir data de fim).
 - [x] Publicar o inquérito com as notas de divulgação para cada audiência (21/10).
-- [ ] Guardar a informação sobre o uso de IA na elaboração do inquérito, para a nota prévia do anexo do relatório.
+- [x] Guardar a informação sobre o uso de IA na elaboração do inquérito, para a nota prévia do anexo do relatório (28/10).
 
 ---
 
@@ -177,3 +183,57 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [ ] Definir as máquinas de estados da candidatura e do tema (proposta).
 - [ ] Elaborar o diagrama de classes, depois de concluídos os processos.
 - [ ] Preparar o acesso remoto à base de dados PostgreSQL.
+
+---
+
+### Reunião 5 — 28/10/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e os alunos dos TFC DEISI2256 e DEISI2258
+**Nota:** pontos registados a partir das notas tiradas durante a reunião; podem não estar completos.
+
+#### Pontos discutidos
+
+**Revisão da lista de processos — atores**
+- Docente, orientador e jurado são o mesmo ator (Docente), com funções diferentes em cada TFC.
+- O sistema não é um ator.
+
+**Revisão da lista de processos — propostas**
+- Publicar e consultar propostas devem ser dois processos separados.
+- Por legibilidade, o estado "publicada" da proposta passa a "disponível".
+- A proposta deve indicar se o TFC é individual ou em grupo; um TFC individual não aceita grupos.
+- Usar uma tabela de grupos de cursos (por exemplo, LEI e LIG), escolhidos por caixas de verificação.
+
+**Revisão da lista de processos — candidaturas**
+- Alterar e cancelar candidatura devem ser dois processos separados.
+- Trocar o TFC de uma candidatura (de A para B) é outro processo.
+- Registar a candidatura recusada por falta de créditos.
+- A candidatura em grupo pode ter um descritivo.
+- Prever a possibilidade de os docentes juntarem alunos para fazerem um TFC.
+
+**Revisão da lista de processos — avaliação e apuramento de resultados**
+- Na avaliação, definir os momentos e os critérios de avaliação.
+- Dividir o apuramento de resultados em dois processos: cálculo da nota de cada avaliação (incluindo a nota intercalar) e cálculo da nota final.
+- Prever uma avaliação adicional (quase certa).
+
+**Documentação**
+- Acrescentar diagramas de sequência e de workflow aos processos.
+- Deixar no fim do documento uma nota com o que ainda tem de ser pensado.
+
+**Base de dados**
+- Os docentes têm de ter indicação de ativo ou inativo, para se saber se estão a trabalhar com TFC.
+- A base de dados guarda os dados de todos os anos letivos.
+
+**Inquérito**
+- Ponto de situação: 32 respostas de alunos a iniciar o TFC, 0 de alunos que já o realizaram e 8 de docentes.
+
+#### Decisões
+- Aplicar à lista de processos as alterações indicadas.
+- Um TFC com modalidade em grupo não aceita candidaturas individuais (a confirmar, ver próximos passos).
+- Avançar com os mockups das candidaturas e das avaliações.
+
+#### Próximos passos
+- [x] Aplicar as alterações à lista de processos (31/10).
+- [ ] Esclarecer com o orientador as questões em aberto da lista de processos: troca de TFC depois da atribuição; aceitação dos alunos juntados pelo docente; avaliação adicional; agregação das notas dos jurados e conversão da escala; descritivo da candidatura em grupo; quem submete as entregas num grupo.
+- [ ] Confirmar a regra da modalidade em grupo, com o exemplo de dois candidatos individuais ao mesmo TFC que foram juntados pelo orientador.
+- [ ] Fazer os mockups das candidaturas e das avaliações.
