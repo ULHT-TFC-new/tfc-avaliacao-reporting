@@ -60,7 +60,9 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 28/10/2026 | Nota prévia sobre o uso de IA na elaboração do inquérito | Para o anexo do inquérito no relatório; a parte da análise fica para depois |
 | 28/10/2026 | Ponto de situação das respostas | 32 alunos a iniciar o TFC, 0 alunos que já o realizaram, 8 docentes |
 | 28/10/2026 | Reunião com o orientador | Ver Reunião 5 |
+| 31/10/2026 | Envio ao orientador, por email, das questões em aberto sobre os processos | Modalidade dos TFC, junção de alunos, troca de TFC, candidatura em grupo, entregas em grupo, avaliação adicional e cálculo das notas |
 | 31/10/2026 | Revisão da lista de processos com as indicações da Reunião 5 | Alterações feitas pelo colega; acrescentada a secção de questões em aberto e corrigidas as regras de créditos, de publicação de propostas e de junção de alunos |
+| 01/11/2026 | Resposta do orientador às questões em aberto e atualização da lista de processos | Três modalidades de TFC; desatribuição pelo orientador com validação da coordenação; entregas por qualquer elemento do grupo; recálculo proporcional dos pesos com a avaliação adicional; nota pela média das avaliações e conversão da escala por regra de três simples |
 
 ---
 
@@ -208,7 +210,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - Alterar e cancelar candidatura devem ser dois processos separados.
 - Trocar o TFC de uma candidatura (de A para B) é outro processo.
 - Registar a candidatura recusada por falta de créditos.
-- A candidatura em grupo pode ter um descritivo.
+- O processo de candidatura em grupo deve ter um descritivo no documento de processos.
 - Prever a possibilidade de os docentes juntarem alunos para fazerem um TFC.
 
 **Revisão da lista de processos — avaliação e apuramento de resultados**
@@ -234,6 +236,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 
 #### Próximos passos
 - [x] Aplicar as alterações à lista de processos (31/10).
-- [ ] Esclarecer com o orientador as questões em aberto da lista de processos: troca de TFC depois da atribuição; aceitação dos alunos juntados pelo docente; avaliação adicional; agregação das notas dos jurados e conversão da escala; descritivo da candidatura em grupo; quem submete as entregas num grupo.
-- [ ] Confirmar a regra da modalidade em grupo, com o exemplo de dois candidatos individuais ao mesmo TFC que foram juntados pelo orientador.
+- [x] Esclarecer com o orientador as questões em aberto da lista de processos (respondidas por email a 01/11; o cálculo da majoração do orientador fica para a próxima reunião).
+- [x] Confirmar a regra da modalidade em grupo (01/11: três modalidades vinculativas — individual, em grupo, individual ou em grupo).
 - [ ] Fazer os mockups das candidaturas e das avaliações.
+- [ ] Ver com o orientador o cálculo da majoração do orientador na nota (próxima reunião).
