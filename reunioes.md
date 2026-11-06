@@ -16,6 +16,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (a recolher respostas) |
 | 28/10 – 31/10 | Rever a lista de processos com as indicações da Reunião 5 | Concluído (questões em aberto por esclarecer) |
 | 28/10 – 15/11 | Mockups das candidaturas e das avaliações | Por iniciar |
+| 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Por iniciar |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
 | 16/11 – 29/11 | Arquitetura, mockups e configuração do ambiente (contentores Docker) | Por iniciar |
@@ -63,6 +64,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 31/10/2026 | Envio ao orientador, por email, das questões em aberto sobre os processos | Modalidade dos TFC, junção de alunos, troca de TFC, candidatura em grupo, entregas em grupo, avaliação adicional e cálculo das notas |
 | 31/10/2026 | Revisão da lista de processos com as indicações da Reunião 5 | Alterações feitas pelo colega; acrescentada a secção de questões em aberto e corrigidas as regras de créditos, de publicação de propostas e de junção de alunos |
 | 01/11/2026 | Resposta do orientador às questões em aberto e atualização da lista de processos | Três modalidades de TFC; desatribuição pelo orientador com validação da coordenação; entregas por qualquer elemento do grupo; recálculo proporcional dos pesos com a avaliação adicional; nota pela média das avaliações e conversão da escala por regra de três simples |
+| 04/11/2026 | Reunião com o orientador | Ver Reunião 6 |
 
 ---
 
@@ -240,3 +242,62 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [x] Confirmar a regra da modalidade em grupo (01/11: três modalidades vinculativas — individual, em grupo, individual ou em grupo).
 - [ ] Fazer os mockups das candidaturas e das avaliações.
 - [ ] Ver com o orientador o cálculo da majoração do orientador na nota (próxima reunião).
+
+---
+
+### Reunião 6 — 04/11/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e os alunos dos TFC DEISI2256 e DEISI2258.
+
+#### Pontos discutidos
+
+**Revisão da lista de processos — observações gerais**
+- Os processos devem descrever a plataforma pretendida, e não apenas a plataforma atual.
+- A informação retirada do regulamento deve indicar o ponto do regulamento de onde vem; o regulamento pode ir em anexo ou na bibliografia, com o link.
+
+**Atores**
+- Distinguir os tipos de proponente externo (por exemplo, empresas e outros departamentos da universidade), que na plataforma atual têm formulários diferentes.
+
+**Configuração do ano letivo**
+- Falta o processo de fecho do ano letivo: os TFC do ano passam para o histórico, que continua consultável mas deixa de estar ativo. Pode ficar na configuração do ano letivo ou no apuramento de resultados.
+
+**Avaliação**
+- Cada entrega tem um prazo limite; a partir desse prazo deixa de ser possível entregar e também submeter ou alterar avaliações, mas as avaliações continuam sempre disponíveis para consulta.
+- Dividir a definição dos momentos de avaliação e a definição dos critérios de avaliação em dois processos. Cada momento tem uma data, um peso e um mecanismo de avaliação, e vários critérios com pesos próprios (por exemplo, a entrega de 13/12 tem 7 critérios).
+- Criar um processo genérico para "outros momentos de avaliação" (sem o limitar a seminários): pode ser, por exemplo, um seminário de presença obrigatória sem nota, ou uma defesa com nota. A nota pode contar para a nota final ou apenas para um momento específico (por exemplo, as apresentações de dezembro contam só para a 1.ª entrega).
+
+**Resultados, consultas e notificações**
+- A publicação de resultados deve existir também no apuramento dos resultados finais, e não só nas avaliações intercalares.
+- Acrescentar a consulta das avaliações por orientadores e alunos.
+- Os orientadores devem poder consultar sempre as avaliações dos TFC que orientam, incluindo o histórico; hoje só veem as avaliações da última entrega.
+- As notificações são um subsistema completo, a detalhar na arquitetura da aplicação.
+
+**Candidaturas**
+- O processo de formar grupo (P-03.1) repete o que já está na candidatura em grupo e na sua confirmação (P-03.3 e P-03.4), pelo que deve ser retirado. Na candidatura em grupo, o aluno que submete identifica os dois elementos e o segundo elemento confirma ou recusa.
+- Foram consideradas duas opções para a confirmação do segundo elemento: confirmar o grupo uma única vez (ficando confirmadas todas as candidaturas do grupo) ou confirmar cada candidatura; as duas opções são válidas.
+- Substituir uma candidatura (P-03.6) equivale a cancelar, candidatar de novo e reordenar; os dois caminhos são válidos e a equipa decide se mantém o processo de substituição, tendo em conta o trabalho de implementação.
+- Uniformizar a nomenclatura: usar sempre "candidatura" ou sempre "inscrição".
+- No diagrama da atribuição, não é necessário notificar os outros candidatos.
+
+**Estados e diagramas**
+- Modelar os estados da proposta e do TFC como máquinas de estados (diagrama de estados em Mermaid), e não como fluxogramas; cada transição tem de corresponder a um evento.
+- Os estados "submetida" e "em validação" da proposta não têm um evento que os separe, pelo que devem ser o mesmo estado. "Aceite" e "disponível" distinguem-se porque há um evento entre eles (publicar).
+- Rever o diagrama das propostas: mistura as propostas de docentes com as de alunos e repete a indicação de aluno pré-selecionado.
+- Não juntar demasiados processos no mesmo diagrama nem misturar ações de atores diferentes (aluno e coordenação).
+
+**Descrição dos processos**
+- As fichas dos processos têm de incluir pré-condições e resultados observáveis (pós-condições), para que o comportamento possa ser testado, incluindo o evento que provoca cada mudança de estado.
+
+#### Decisões
+- Retirar o processo de formar grupo (P-03.1).
+- Na candidatura em grupo, o segundo elemento confirma cada uma das candidaturas do grupo, aceitando-a ou recusando-a.
+- Rever a lista de processos com as indicações desta reunião.
+- Avançar para os use cases e as user stories a partir da descrição detalhada dos processos.
+
+#### Próximos passos
+- [ ] Enviar ao orientador o link do commit com o ficheiro das reuniões.
+- [ ] Rever a lista de processos com as indicações desta reunião.
+- [ ] Decidir se o processo de substituição de candidatura (P-03.6) se mantém.
+- [ ] Desenhar as máquinas de estados da proposta, da candidatura e do TFC.
+- [ ] Elaborar os diagramas de use case e as user stories, identificando o ator que desencadeia cada processo.
