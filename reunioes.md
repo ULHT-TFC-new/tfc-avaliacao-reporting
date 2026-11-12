@@ -13,14 +13,15 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 30/09 – 04/10 | Criar o repositório e coordenar com os grupos do DEISI2256 e DEISI2258 (estrutura dos repositórios, base de dados, backend) | Em curso |
 | 02/10 – 18/10 | Elaborar a lista de processos da plataforma (macro-processos e processos), seguindo o método de ERT, e revê-la com o orientador | Concluído |
 | 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
-| 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Em curso (a recolher respostas) |
+| 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Concluído (60 respostas) |
 | 28/10 – 31/10 | Rever a lista de processos com as indicações da Reunião 5 | Concluído (questões em aberto por esclarecer) |
 | 28/10 – 15/11 | Mockups das candidaturas e das avaliações | Por iniciar |
-| 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Por iniciar |
-| 09/11 – 15/11 | Análise exploratória dos resultados | Por iniciar |
+| 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Concluído (ajustes da Reunião 7 em curso) |
+| 09/11 – 15/11 | Análise exploratória dos resultados | Em curso |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
-| 16/11 – 29/11 | Arquitetura, mockups e configuração do ambiente (contentores Docker) | Por iniciar |
-| 23/11 – 06/12 | Redação do relatório da 1ª entrega e gravação do vídeo (máx. 2 min) | Por iniciar |
+| 11/11 – 22/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Por iniciar |
+| 16/11 – 29/11 | Mockups e configuração do ambiente (contentores Docker) | Por iniciar |
+| 11/11 – 06/12 | Redação do relatório da 1ª entrega e gravação do vídeo (máx. 2 min) | Por iniciar |
 | **06/12** | **Envio do relatório ao orientador (1 semana de antecedência)** | — |
 | **13/12** | **1ª entrega intercalar** | — |
 
@@ -65,6 +66,12 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 31/10/2026 | Revisão da lista de processos com as indicações da Reunião 5 | Alterações feitas pelo colega; acrescentada a secção de questões em aberto e corrigidas as regras de créditos, de publicação de propostas e de junção de alunos |
 | 01/11/2026 | Resposta do orientador às questões em aberto e atualização da lista de processos | Três modalidades de TFC; desatribuição pelo orientador com validação da coordenação; entregas por qualquer elemento do grupo; recálculo proporcional dos pesos com a avaliação adicional; nota pela média das avaliações e conversão da escala por regra de três simples |
 | 04/11/2026 | Reunião com o orientador | Ver Reunião 6 |
+| 06/11/2026 | Envio ao orientador do link do commit com as notas da Reunião 6 | Registo aprovado pelo orientador a 07/11 |
+| 07/11/2026 | Revisão da lista de processos com as indicações da Reunião 6 | Máquinas de estados da proposta, da candidatura e do TFC; fecho do ano letivo; momentos e critérios de avaliação em processos separados; publicação dos resultados finais e consulta das avaliações; pré-condições e pós-condições em todas as fichas |
+| 11/11/2026 | Análise exploratória das respostas ao inquérito | 60 respostas: 48 de alunos a iniciar o TFC, 4 de alunos de anos anteriores e 8 de docentes |
+| 11/11/2026 | Reunião com o orientador | Ver Reunião 7 |
+| 11/11/2026 | Divisão do trabalho com o DEISI2256 | Tomás Cruz (DEISI2257) fica com o backend e o colega do DEISI2256 com o frontend |
+| 11/11/2026 | Envio ao orientador, por email, de questões sobre o âmbito do backend e a divisão do trabalho com o DEISI2258 | Resposta no mesmo dia: o frontend e o backend cobrem toda a plataforma; o backend aplica a lógica de negócio numa linguagem server side e desenvolve a API, se existir; o agente do DEISI2258 deve ser autónomo e correr no GitHub (actions e workflows); o frontend regista o endereço do repositório e recebe o resultado do agente; o registo da submissão e dos resultados na base de dados fica por combinar com o DEISI2258 |
 
 ---
 
@@ -296,8 +303,60 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - Avançar para os use cases e as user stories a partir da descrição detalhada dos processos.
 
 #### Próximos passos
-- [ ] Enviar ao orientador o link do commit com o ficheiro das reuniões.
-- [ ] Rever a lista de processos com as indicações desta reunião.
+- [x] Enviar ao orientador o link do commit com o ficheiro das reuniões (06/11).
+- [x] Rever a lista de processos com as indicações desta reunião (07/11).
 - [ ] Decidir se o processo de substituição de candidatura (P-03.6) se mantém.
-- [ ] Desenhar as máquinas de estados da proposta, da candidatura e do TFC.
+- [x] Desenhar as máquinas de estados da proposta, da candidatura e do TFC (07/11).
 - [ ] Elaborar os diagramas de use case e as user stories, identificando o ator que desencadeia cada processo.
+
+---
+
+### Reunião 7 — 11/11/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e o aluno do TFC DEISI2256.
+
+#### Pontos discutidos
+
+**Registo das reuniões**
+- O orientador considerou correto o registo da Reunião 6, tanto no que foi discutido como nos próximos passos.
+
+**Análise do inquérito**
+- Começar a análise das respostas e identificar os padrões com interesse para o trabalho. A análise vai em anexo ao relatório, com as conclusões.
+- Verificar se há respostas que contrariam o que estava pensado para a plataforma.
+- Alunos a iniciar o TFC: 48 respostas em cerca de 80 inscritos, quase dois terços. É uma amostra relevante e justifica uma apreciação estatística, sobretudo das candidaturas, que são os processos que mais vão mudar. Só cobre uma parte do processo de TFC.
+- Alunos de anos anteriores: as 4 respostas não são significativas e não são tratadas; a análise deve ter uma nota a dizê-lo.
+- Docentes: as 8 respostas (cerca de um terço dos docentes envolvidos) não são estatisticamente relevantes, mas mostram tendências. A análise deve indicar só as tendências principais, ou seja, as respostas unânimes ou que apontam todas no mesmo sentido (três ou quatro), com uma nota a explicar que o desenho da aplicação as tem em conta, mas que não se apresenta uma análise completa.
+
+**Relatório e arquitetura**
+- Falta um mês para a 1.ª entrega; começar já a escrever o relatório.
+- Começar a definir a arquitetura, mesmo que simples: o que fica no frontend e no backend e que tecnologias usar. O trabalho de requisitos continua em paralelo.
+- A escolha da arquitetura e das tecnologias é dos alunos; não há nenhum requisito que obrigue a uma tecnologia. Como referência, a plataforma atual usa Kotlin com Java, e Django com Python e React são alternativas.
+- A IA pode ajudar a criar o ambiente, mas a decisão de arquitetura não deve ser entregue a um LLM. Para lhe pedir uma recomendação, é preciso ter antes a estrutura funcional definida (modelo da base de dados, funcionalidades do frontend e separação entre frontend e backend) e um prompt bem formulado.
+- Para a 1.ª entrega, o regulamento pede uma proposta de arquitetura e um "Hello World" a funcionar nessa arquitetura.
+- A integração com o GitHub (API e GitHub Actions) depende da linguagem escolhida. Dedicar algumas horas à documentação do GitHub antes de decidir.
+- O orientador vai disponibilizar uma cópia da aplicação atual para experimentação. Só o faz agora para os requisitos não ficarem condicionados pela plataforma existente. O código tem cerca de 10 anos e pouco deve ser reaproveitado.
+
+**Revisão da lista de processos**
+- As fichas dos processos estão bem definidas, com pré-condições, fluxo, pós-condições e regras.
+- A avaliação (momentos e critérios), o apuramento de resultados e a junção de alunos num TFC estão corretos.
+- Validação do relatório pelo orientador (P-05.2): não estava claro se é feita na plataforma. Fica feita na plataforma: o aluno submete o relatório, o orientador aceita ou devolve, e o relatório só fica entregue quando o orientador o aceita, ficando esse registo na plataforma.
+- Não guardar as versões anteriores do relatório: cada ficheiro submetido substitui o anterior, o que obriga a ter uma função para apagar o ficheiro. Os ficheiros devem ficar numa pasta e não na base de dados, para a base de dados não crescer demasiado.
+- Em alternativa, os entregáveis podiam ficar só no repositório GitHub, registando a plataforma a versão pelo hash do commit. Esta opção não avança para já.
+- Seminários e DEISIFest (MP-08): o DEISIFest já está definido como momento de avaliação no P-06.1, por isso o MP-08 repete-o. Ou se retira, ou passa a definir os modelos (templates) do modelo base de avaliação: avaliação intercalar (igual nas duas intercalares), avaliação final (com júri e apresentação presencial), DEISIFest (votação por pares, com registo da média) e presenças.
+
+#### Decisões
+- A análise do inquérito trata estatisticamente só as respostas dos alunos a iniciar o TFC; dos docentes indicam-se apenas as tendências principais e as respostas dos alunos de anos anteriores não são tratadas.
+- A validação do relatório pelo orientador é feita na plataforma.
+- Cada relatório submetido substitui o anterior, e os ficheiros são guardados numa pasta e não na base de dados.
+- Avançar com a proposta de arquitetura e com a redação do relatório.
+
+#### Próximos passos
+- [ ] Ajustar a análise exploratória do inquérito às indicações desta reunião.
+- [ ] Clarificar na lista de processos a validação do relatório na plataforma (P-05.1 a P-05.3).
+- [ ] Decidir se o MP-08 é retirado ou se passa a definir os modelos do modelo base de avaliação.
+- [ ] Ver na documentação do GitHub que linguagem se integra melhor com a API e com o GitHub Actions.
+- [ ] Combinar com o DEISI2258 como o agente regista a submissão e os resultados na base de dados (escrita direta pelo agente, ação a pedido no frontend ou tarefa do servidor em batch).
+- [ ] Definir a proposta de arquitetura (frontend, backend e tecnologias) e preparar um "Hello World".
+- [ ] Experimentar a cópia da aplicação atual, quando o orientador a disponibilizar.
+- [ ] Começar a escrever o relatório da 1.ª entrega.
