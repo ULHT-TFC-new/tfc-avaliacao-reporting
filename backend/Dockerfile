@@ -10,6 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Junta os ficheiros estáticos (CSS e JavaScript do painel de administração)
+RUN python manage.py collectstatic --noinput
+
 EXPOSE 8000
 
 # Aplica as migrações e arranca o servidor
