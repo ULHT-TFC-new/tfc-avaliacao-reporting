@@ -2,7 +2,7 @@
 
 # Análise exploratória do inquérito
 
-Este documento analisa as respostas ao inquérito sobre a plataforma de gestão de TFC do DEISI. O inquérito foi feito em conjunto pelos grupos do DEISI2256, DEISI2257 e DEISI2258 e serve de base ao levantamento de requisitos.
+Este documento analisa as respostas ao [inquérito](01_inquerito.md) sobre a plataforma de gestão de TFC do DEISI. O inquérito foi feito em conjunto pelos grupos do DEISI2256, DEISI2257 e DEISI2258 e serve de base ao levantamento de requisitos.
 
 ## 1. Recolha dos dados
 

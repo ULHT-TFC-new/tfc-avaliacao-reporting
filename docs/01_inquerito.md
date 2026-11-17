@@ -1,3 +1,5 @@
+> **Aviso:** inquérito elaborado com apoio de IA generativa (Claude, Anthropic). A utilização está descrita em [04_utilizacao_de_ia.md](04_utilizacao_de_ia.md).
+
 # Inquérito — Plataforma de Gestão de TFC
 
 > **Objetivo:** recolher a opinião de alunos e docentes sobre a plataforma de gestão de TFC atual, como base para o levantamento de requisitos dos três TFC de modernização da plataforma.
