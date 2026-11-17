@@ -490,6 +490,8 @@ A base de dados garante estas regras, mesmo que o pedido não venha do backend (
 | R14 | **Histórico:** cada mudança de estado, prioridade, nota ou dado publicado é registada em Historico, com o evento e o utilizador | Trigger AFTER UPDATE genérico nas tabelas principais | Todos |
 | R15 | **Fechar o ano letivo:** arquiva os TFC e as propostas não atribuídas e passa o ano a só leitura | Função `fechar_ano_letivo(ano)` e trigger que bloqueia alterações em anos fechados | P-01.4 |
 
+**Estado da implementação (17/11):** as restrições R1 a R6 e as regras R7, R8 e R9 estão implementadas e testadas no backend; R14 está implementada só para as candidaturas. As restantes (R10 a R13 e R15) ficam para as próximas iterações.
+
 ## 6. Vistas para o reporting
 
 As consultas dos relatórios ficam em vistas da base de dados, para o backend e as exportações usarem sempre os mesmos dados. As primeiras são as que os docentes mais pediram no inquérito.
