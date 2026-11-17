@@ -319,8 +319,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 ### Reunião 7 — 11/11/2026
 
 **Tipo:** Reunião com o orientador
-**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e os alunos do TFC DEISI2256. Os alunos do TFC DEISI2258 não participaram.
-**Nota:** pontos registados a partir de uma gravação da reunião transcrita automaticamente; podem faltar pormenores.
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e o aluno do TFC DEISI2256.
 
 #### Pontos discutidos
 
