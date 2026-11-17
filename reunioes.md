@@ -19,7 +19,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Concluído (ajustes da Reunião 7 em curso) |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Em curso |
 | 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
-| 11/11 – 22/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Por iniciar |
+| 11/11 – 22/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Em curso (backend em Django; "Hello World" do backend feito) |
 | 16/11 – 29/11 | Mockups e configuração do ambiente (contentores Docker) | Por iniciar |
 | 11/11 – 06/12 | Redação do relatório da 1ª entrega e gravação do vídeo (máx. 2 min) | Por iniciar |
 | **06/12** | **Envio do relatório ao orientador (1 semana de antecedência)** | — |
@@ -72,6 +72,11 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 11/11/2026 | Reunião com o orientador | Ver Reunião 7 |
 | 11/11/2026 | Divisão do trabalho com o DEISI2256 | Tomás Cruz (DEISI2257) fica com o backend e o colega do DEISI2256 com o frontend |
 | 11/11/2026 | Envio ao orientador, por email, de questões sobre o âmbito do backend e a divisão do trabalho com o DEISI2258 | Resposta no mesmo dia: o frontend e o backend cobrem toda a plataforma; o backend aplica a lógica de negócio numa linguagem server side e desenvolve a API, se existir; o agente do DEISI2258 deve ser autónomo e correr no GitHub (actions e workflows); o frontend regista o endereço do repositório e recebe o resultado do agente; o registo da submissão e dos resultados na base de dados fica por combinar com o DEISI2258 |
+| 15/11/2026 | Envio ao orientador do link do commit com as notas da Reunião 7 | — |
+| 17/11/2026 | Escolha da tecnologia do backend | Python com Django e Django REST Framework, sobre PostgreSQL |
+| 17/11/2026 | "Hello World" do backend | Contentores de base de dados (PostgreSQL) e backend (Django) com Docker Compose; endpoint de estado e endpoint que lista os cursos a partir da base de dados |
+| 17/11/2026 | Primeira versão do modelo de dados | Diagrama de classes de toda a plataforma, regras na base de dados (restrições, triggers e funções) e vistas para o reporting |
+| 17/11/2026 | Implementação do modelo de dados no backend | Modelos do Django para as 36 classes, restrições, dados iniciais de 2026/27 (fases, cursos e modelo de avaliação) e primeiras regras na base de dados: validação e renumeração da lista de candidaturas e função de atribuição de um TFC; 14 testes automáticos |
 
 ---
 
@@ -187,12 +192,12 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 
 #### Próximos passos
 - [x] Publicar o inquérito (21/10).
-- [ ] Acompanhar o número de respostas por perfil.
-- [ ] Reforçar o pedido junto dos docentes (através do orientador).
-- [ ] Decidir com o orientador o segundo pedido, sem autenticação, para os alunos que já realizaram o TFC.
-- [ ] Iniciar a análise exploratória dos resultados depois do fecho do inquérito.
-- [ ] Definir as máquinas de estados da candidatura e do tema (proposta).
-- [ ] Elaborar o diagrama de classes, depois de concluídos os processos.
+- [x] Acompanhar o número de respostas por perfil (inquérito fechado com 60 respostas).
+- [x] Reforçar o pedido junto dos docentes (através do orientador).
+- [x] Decidir com o orientador o segundo pedido, sem autenticação, para os alunos que já realizaram o TFC (não avança; as respostas deste perfil não são tratadas, Reunião 7).
+- [x] Iniciar a análise exploratória dos resultados depois do fecho do inquérito (11/11).
+- [x] Definir as máquinas de estados da candidatura e do tema (proposta) (07/11).
+- [x] Elaborar o diagrama de classes, depois de concluídos os processos (primeira versão a 17/11).
 - [ ] Preparar o acesso remoto à base de dados PostgreSQL.
 
 ---
@@ -314,7 +319,8 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 ### Reunião 7 — 11/11/2026
 
 **Tipo:** Reunião com o orientador
-**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e o aluno do TFC DEISI2256.
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e os alunos do TFC DEISI2256. Os alunos do TFC DEISI2258 não participaram.
+**Nota:** pontos registados a partir de uma gravação da reunião transcrita automaticamente; podem faltar pormenores.
 
 #### Pontos discutidos
 
@@ -352,11 +358,11 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - Avançar com a proposta de arquitetura e com a redação do relatório.
 
 #### Próximos passos
-- [ ] Ajustar a análise exploratória do inquérito às indicações desta reunião.
-- [ ] Clarificar na lista de processos a validação do relatório na plataforma (P-05.1 a P-05.3).
+- [x] Ajustar a análise exploratória do inquérito às indicações desta reunião (11/11).
+- [x] Clarificar na lista de processos a validação do relatório na plataforma (P-05.1 a P-05.3) (11/11).
 - [ ] Decidir se o MP-08 é retirado ou se passa a definir os modelos do modelo base de avaliação.
-- [ ] Ver na documentação do GitHub que linguagem se integra melhor com a API e com o GitHub Actions.
+- [x] Ver na documentação do GitHub que linguagem se integra melhor com a API e com o GitHub Actions (escolhido Python, 17/11).
 - [ ] Combinar com o DEISI2258 como o agente regista a submissão e os resultados na base de dados (escrita direta pelo agente, ação a pedido no frontend ou tarefa do servidor em batch).
-- [ ] Definir a proposta de arquitetura (frontend, backend e tecnologias) e preparar um "Hello World".
+- [ ] Definir a proposta de arquitetura (frontend, backend e tecnologias) e preparar um "Hello World" (backend em Django e "Hello World" do backend feitos a 17/11).
 - [ ] Experimentar a cópia da aplicação atual, quando o orientador a disponibilizar.
 - [ ] Começar a escrever o relatório da 1.ª entrega.
