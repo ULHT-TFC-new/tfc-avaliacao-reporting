@@ -77,6 +77,8 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 17/11/2026 | "Hello World" do backend | Contentores de base de dados (PostgreSQL) e backend (Django) com Docker Compose; endpoint de estado e endpoint que lista os cursos a partir da base de dados |
 | 17/11/2026 | Primeira versão do modelo de dados | Diagrama de classes de toda a plataforma, regras na base de dados (restrições, triggers e funções) e vistas para o reporting |
 | 17/11/2026 | Implementação do modelo de dados no backend | Modelos do Django para as 36 classes, restrições, dados iniciais de 2026/27 (fases, cursos e modelo de avaliação) e primeiras regras na base de dados: validação e renumeração da lista de candidaturas e função de atribuição de um TFC; 14 testes automáticos |
+| 17/11/2026 | Organização do repositório | Documentação na pasta docs, README do projeto, imagens da análise e documento de utilização de IA |
+| 17/11/2026 | Teste do backend com Docker | Contentores a funcionar no computador do aluno; painel de administração com os dados de demonstração |
 
 ---
 
