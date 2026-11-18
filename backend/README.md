@@ -36,6 +36,7 @@ As regras que garantem a consistência dos dados estão no PostgreSQL e são cri
 | Restrições (candidatura repetida, prioridades únicas, um TFC ativo por aluno, um grupo ativo por aluno, limites de notas e pesos) | `models.py` de cada app (`constraints`) |
 | R8 — renumerar a lista quando uma candidatura sai | `candidaturas/migrations/0003_regras_lista.py` |
 | R9 — validar uma candidatura nova (fase, proposta, modalidade, limite, créditos) | `candidaturas/migrations/0003_regras_lista.py` |
+| R8 (complemento) — uma candidatura que volta à lista fica na última posição | `candidaturas/migrations/0004_regressa_a_lista.py` |
 | P-03.4 — mudar a prioridade (`mover_candidatura`) | `candidaturas/migrations/0003_regras_lista.py` |
 | R7 — atribuir um TFC (`atribuir_tfc`), que desencadeia as restantes operações | `tfc/migrations/0002_atribuir_tfc.py` |
 | R14 (parcial) — histórico das mudanças de estado das candidaturas | `candidaturas/migrations/0003_regras_lista.py` |

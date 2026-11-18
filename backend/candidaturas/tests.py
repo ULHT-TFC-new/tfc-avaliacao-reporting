@@ -67,6 +67,16 @@ class ListaDeCandidaturasTests(Base):
         self.assertIsNone(cs[1].prioridade)
         self.assertEqual(self.lista(a), [("T1", 1), ("T3", 2), ("T4", 3)])
 
+    def test_candidatura_reativada_volta_para_o_fim(self):
+        a = self.alunos[0]
+        cs = [self.candidatar(a, p) for p in self.propostas[:3]]
+        cs[0].estado = "CANCELADA"
+        cs[0].save()
+        c = Candidatura.objects.get(id=cs[0].id)
+        c.estado = "ATIVA"
+        c.save()
+        self.assertEqual(self.lista(a), [("T2", 1), ("T3", 2), ("T1", 3)])
+
     def test_mudar_prioridade(self):
         a = self.alunos[0]
         cs = [self.candidatar(a, p) for p in self.propostas[:4]]
