@@ -15,12 +15,12 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
 | 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Concluído (60 respostas) |
 | 28/10 – 31/10 | Rever a lista de processos com as indicações da Reunião 5 | Concluído (questões em aberto por esclarecer) |
-| 28/10 – 15/11 | Mockups das candidaturas e das avaliações | Por iniciar |
+| 28/10 – 04/12 | Mockups das páginas principais (candidaturas, seleção e avaliações) | Em curso (DEISI2256) |
 | 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Concluído (ajustes da Reunião 7 em curso) |
-| 09/11 – 15/11 | Análise exploratória dos resultados | Em curso |
-| 09/11 – 22/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Por iniciar |
-| 11/11 – 22/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Em curso (backend em Django; "Hello World" do backend feito) |
-| 16/11 – 29/11 | Mockups e configuração do ambiente (contentores Docker) | Por iniciar |
+| 09/11 – 15/11 | Análise exploratória dos resultados | Concluído |
+| 09/11 – 29/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Em curso (modelo de dados feito; use cases e user stories por fazer) |
+| 11/11 – 29/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Em curso (backend em Django; integração com o frontend feita; a ajustar à plataforma de publicação) |
+| 16/11 – 29/11 | Configuração do ambiente (contentores Docker) | Concluído (base de dados e backend) |
 | 11/11 – 06/12 | Redação do relatório da 1ª entrega e gravação do vídeo (máx. 2 min) | Por iniciar |
 | **06/12** | **Envio do relatório ao orientador (1 semana de antecedência)** | — |
 | **13/12** | **1ª entrega intercalar** | — |
@@ -79,6 +79,10 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 17/11/2026 | Implementação do modelo de dados no backend | Modelos do Django para as 36 classes, restrições, dados iniciais de 2026/27 (fases, cursos e modelo de avaliação) e primeiras regras na base de dados: validação e renumeração da lista de candidaturas e função de atribuição de um TFC; 14 testes automáticos |
 | 17/11/2026 | Organização do repositório | Documentação na pasta docs, README do projeto, imagens da análise e documento de utilização de IA |
 | 17/11/2026 | Teste do backend com Docker | Contentores a funcionar no computador do aluno; painel de administração com os dados de demonstração |
+| 18/11/2026 | Correção de uma regra da lista de candidaturas | Uma candidatura que volta à lista fica na última posição; 15 testes automáticos |
+| 18/11/2026 | Integração do frontend do DEISI2256 com a API do backend | Lista de propostas e filtros (pesquisa, curso, tecnologia e orientador) a partir da API |
+| 18/11/2026 | Envio ao orientador, por email, do modelo de dados e do backend para revisão | Resposta do orientador: "Muito bom! Relatório antes da sessão é 'muito à frente'" |
+| 18/11/2026 | Reunião com o orientador | Ver Reunião 8 |
 
 ---
 
@@ -367,3 +371,55 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [ ] Definir a proposta de arquitetura (frontend, backend e tecnologias) e preparar um "Hello World" (backend em Django e "Hello World" do backend feitos a 17/11).
 - [ ] Experimentar a cópia da aplicação atual, quando o orientador a disponibilizar.
 - [ ] Começar a escrever o relatório da 1.ª entrega.
+
+---
+
+### Reunião 8 — 18/11/2026
+
+**Tipo:** Reunião com o orientador (online, por Teams)
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257) e o aluno do TFC DEISI2256.
+
+#### Pontos discutidos
+
+**Integração e mockups**
+- Foi mostrada a lista de propostas no frontend do DEISI2256, com os dados vindos da API do backend.
+- O orientador considerou o aspeto gráfico acertado e limpo. As cores não são relevantes nesta fase: na fase final (por volta de maio), o protótipo funcional vai ser apresentado aos colegas para apreciação, e as cores podem mudar nessa altura.
+- O CSS deve ser paramétrico, com as variáveis de formatação (tipo de letra, tamanhos e cores) no início do ficheiro, para se poder mudar o tema alterando só as variáveis. Deve cumprir as normas de acessibilidade do W3C, pelo menos no nível A.
+- Os cartões (cinzento escuro) sobre o fundo preto têm pouco contraste.
+- Fazer já os mockups (wireframes ou esquema de navegação) estáticos das páginas principais:
+  - aluno: ver as propostas, candidatar-se a um TFC e o grupo (por ser muito diferente da plataforma atual);
+  - docente: submeter uma proposta e ver os candidatos de um TFC, com o botão para selecionar o candidato na mesma página;
+  - coordenação: as mesmas páginas do docente, mas com todos os TFC, e um botão para confirmar a seleção;
+  - avaliações: o ecrã de avaliação do docente e o ecrã de controlo das avaliações por docente. O orientador não se distingue dos outros docentes.
+
+**Arquitetura**
+- Antes de fechar a arquitetura, ver a apresentação do Prof. Rui Santos sobre a plataforma de publicação (18/11), perceber os requisitos para publicar a aplicação e ajustar a arquitetura.
+- Estão previstos três contentores: frontend, backend e base de dados. Por causa dos recursos que exige, a base de dados pode ter de ficar num alojamento externo, com a ligação feita por URL.
+
+**Modelo de dados**
+- Grupos: o grupo é tratado na tabela de grupos, e não na tabela de alunos, com triggers. Das soluções discutidas, o orientador prefere que todas as candidaturas sejam de um grupo, sendo a candidatura individual um grupo de um só aluno, porque dá menos trabalho na programação e ao alimentar o frontend.
+- Avaliação: as avaliações são individuais por docente. Ligando a avaliação ao TFC, cada docente só poderia avaliar cada TFC uma vez, e o orientador avalia o mesmo TFC várias vezes. A avaliação deve avaliar a entrega: a entrega identifica de forma única o TFC e o momento de avaliação (e, com ele, a época).
+- O orientador considerou o modelo de dados do DEISI2257 mais evoluído, mas deve aplicar também as alterações discutidas.
+
+**Casos de uso e user stories**
+- Os casos de uso e as user stories são complementares, mas não são a mesma coisa, e uma user story não é uma subdivisão de um caso de uso. Devem estar separados; se forem iguais, escolhe-se uma das formas.
+- Os critérios de aceitação são casos de teste (test cases), e não apenas critérios escritos.
+
+**Feedback**
+- O orientador vai rever o trabalho enviado e mandar o feedback por email.
+
+#### Decisões
+- Fazer os mockups estáticos das páginas principais (DEISI2256), com CSS paramétrico e acessível.
+- O orientador ou o proponente seleciona o candidato e a coordenação confirma e publica a atribuição.
+- A avaliação passa a avaliar a entrega, e não o TFC.
+- Ajustar a arquitetura depois da apresentação da plataforma de publicação.
+
+#### Próximos passos
+- [ ] Ver a apresentação da plataforma de publicação e ajustar a arquitetura (incluindo o alojamento da base de dados).
+- [ ] Ligar a avaliação à entrega, no modelo de dados e no backend.
+- [ ] Decidir se todas as candidaturas passam a ser de um grupo (candidatura individual como grupo de um aluno).
+- [ ] Combinar com os colegas um modelo de dados único.
+- [ ] Atualizar a seleção e a atribuição nos processos: selecionar (orientador ou proponente) e confirmar e publicar (coordenação).
+- [ ] Fazer os mockups das páginas principais (DEISI2256).
+- [ ] Fazer os casos de uso e as user stories separados, com os critérios de aceitação escritos como casos de teste.
+- [ ] Aplicar o feedback do orientador ao trabalho enviado, quando chegar.
