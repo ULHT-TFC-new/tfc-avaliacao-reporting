@@ -35,8 +35,8 @@ class ClassificacaoInline(admin.TabularInline):
 
 @admin.register(Avaliacao)
 class AvaliacaoAdmin(admin.ModelAdmin):
-    list_display = ["tfc", "momento", "jurado", "estado", "data_submissao"]
-    list_filter = ["momento", "estado"]
+    list_display = ["entrega", "jurado", "estado", "data_submissao"]
+    list_filter = ["entrega__momento", "estado"]
     inlines = [ClassificacaoInline]
 
 

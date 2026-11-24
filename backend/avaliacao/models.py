@@ -128,8 +128,15 @@ class Defesa(models.Model):
 
 
 class Avaliacao(models.Model):
-    tfc = models.ForeignKey("tfc.TFC", on_delete=models.CASCADE, related_name="avaliacoes")
-    momento = models.ForeignKey(MomentoAvaliacao, on_delete=models.PROTECT, related_name="avaliacoes")
+    """Avaliação de uma entrega por um jurado.
+
+    Decisão da Reunião 8 (18/11): a avaliação avalia a entrega, e não o TFC. A entrega identifica de forma
+    única o TFC e o momento de avaliação (e, com ele, a época), por isso cada jurado avalia o mesmo TFC uma
+    vez em cada momento. Nos momentos sem ficheiros (por exemplo, uma apresentação), a entrega existe na
+    mesma, como registo da participação.
+    """
+
+    entrega = models.ForeignKey("tfc.Entrega", on_delete=models.PROTECT, related_name="avaliacoes")
     jurado = models.ForeignKey("configuracao.Docente", on_delete=models.PROTECT, related_name="avaliacoes")
     estado = models.CharField(max_length=10, choices=EstadoAvaliacao.choices, default=EstadoAvaliacao.RASCUNHO)
     apreciacao = models.TextField(blank=True, help_text="Aceita Markdown.")
@@ -140,7 +147,10 @@ class Avaliacao(models.Model):
     class Meta:
         verbose_name = "avaliação"
         verbose_name_plural = "avaliações"
-        constraints = [models.UniqueConstraint(fields=["tfc", "momento", "jurado"], name="avaliacao_unica_por_jurado")]
+        constraints = [models.UniqueConstraint(fields=["entrega", "jurado"], name="avaliacao_unica_por_jurado")]
+
+    def __str__(self):
+        return f"{self.entrega} – {self.jurado}"
 
 
 class ClassificacaoCriterio(models.Model):

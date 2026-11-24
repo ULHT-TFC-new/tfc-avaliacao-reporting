@@ -33,13 +33,17 @@ As regras que garantem a consistência dos dados estão no PostgreSQL e são cri
 
 | Regra | Onde |
 |---|---|
-| Restrições (candidatura repetida, prioridades únicas, um TFC ativo por aluno, um grupo ativo por aluno, limites de notas e pesos) | `models.py` de cada app (`constraints`) |
-| R8 — renumerar a lista quando uma candidatura sai | `candidaturas/migrations/0003_regras_lista.py` |
-| R9 — validar uma candidatura nova (fase, proposta, modalidade, limite, créditos) | `candidaturas/migrations/0003_regras_lista.py` |
-| R8 (complemento) — uma candidatura que volta à lista fica na última posição | `candidaturas/migrations/0004_regressa_a_lista.py` |
-| P-03.4 — mudar a prioridade (`mover_candidatura`) | `candidaturas/migrations/0003_regras_lista.py` |
-| R7 — atribuir um TFC (`atribuir_tfc`), que desencadeia as restantes operações | `tfc/migrations/0002_atribuir_tfc.py` |
-| R14 (parcial) — histórico das mudanças de estado das candidaturas | `candidaturas/migrations/0003_regras_lista.py` |
+| Restrições (candidatura repetida, prioridades únicas, um TFC ativo por aluno, um grupo individual por aluno, um candidato selecionado por TFC, uma avaliação por entrega e jurado, limites de notas e pesos) | `models.py` de cada app (`constraints`) |
+| R4 — um aluno só está num grupo de dois ativo por ano; o grupo individual fica ativo ao ser criado | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| R8 — renumerar a lista do grupo quando uma candidatura sai, e pô-la no fim se voltar | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| R9 — validar uma candidatura nova (fase, grupo, proposta, modalidade, candidatura repetida, limite, créditos) | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| P-03.3 — o grupo de dois fica ativo quando o colega confirma a primeira candidatura | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| P-03.4 — mudar a prioridade (`mover_candidatura`) | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| P-03.7 — selecionar o candidato (`selecionar_candidato`) | `candidaturas/migrations/0008_regras_por_grupo.py` |
+| R7 e P-03.9 — confirmar a seleção (`confirmar_selecao`) e atribuir o TFC (`atribuir_tfc`), que desencadeia as restantes operações | `tfc/migrations/0003_atribuir_e_confirmar.py` |
+| R14 (parcial) — histórico das mudanças de estado das candidaturas | `candidaturas/migrations/0008_regras_por_grupo.py` |
+
+As alterações da reunião de 18/11 estão nas migrações `candidaturas/0005` a `0008`, `tfc/0003` e `avaliacao/0004` a `0006`: todas as candidaturas pertencem a um grupo (a individual é um grupo só com o aluno), a seleção passa a ter confirmação pela coordenação e a avaliação passa a avaliar a entrega. As migrações convertem os dados que já existam na base de dados.
 
 Ainda por implementar: R10 (fecho no prazo), R11 (discrepância entre jurados), R12 (pesos), R13 (cálculo das notas), R15 (fecho do ano letivo), o resto do histórico e as vistas de reporting.
 
@@ -61,7 +65,7 @@ docker compose exec backend python manage.py createsuperuser
 docker compose exec backend python manage.py carregar_demo
 ```
 
-O `carregar_demo` cria um ano letivo "DEMO" com a fase de candidaturas aberta, docentes, alunos, propostas e candidaturas, e atribui um TFC com a função `atribuir_tfc`. Pode ser corrido várias vezes.
+O `carregar_demo` cria um ano letivo "DEMO" com a fase de candidaturas aberta, docentes, alunos, grupos, propostas e candidaturas (incluindo uma candidatura em grupo à espera da confirmação do colega). No DEMO01, a orientadora seleciona um candidato e a coordenação confirma, o que atribui o TFC; no DEMO04, há um candidato selecionado à espera da confirmação. Pode ser corrido várias vezes.
 
 ## Endpoints
 
@@ -100,4 +104,4 @@ python manage.py runserver
 python manage.py test
 ```
 
-Os testes verificam as regras da base de dados: posição de uma candidatura nova, renumeração ao cancelar, mudança de prioridade, recusa por falta de créditos, limite de candidaturas, modalidade, candidatura repetida, fase fechada e as operações desencadeadas pela atribuição de um TFC.
+Os testes verificam as regras da base de dados: grupos (individual, confirmação pelo colega, um grupo de dois ativo por aluno), lista de candidaturas (posição de uma candidatura nova, renumeração, regresso à lista, mudança de prioridade), validações (créditos do aluno e do colega, limite, modalidade, candidatura repetida, fase fechada), seleção e confirmação com as operações desencadeadas pela atribuição, e avaliação por entrega.

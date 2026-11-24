@@ -5,9 +5,9 @@ from .models import Candidatura, Grupo, Selecao
 
 @admin.register(Candidatura)
 class CandidaturaAdmin(admin.ModelAdmin):
-    list_display = ["aluno", "proposta", "grupo", "prioridade", "estado", "motivo_fim"]
+    list_display = ["grupo", "proposta", "prioridade", "estado", "motivo_fim"]
     list_filter = ["ano_letivo", "estado"]
-    search_fields = ["aluno__numero", "proposta__codigo"]
+    search_fields = ["grupo__submissor__numero", "grupo__colega__numero", "proposta__codigo"]
 
 
 @admin.register(Grupo)
@@ -16,4 +16,7 @@ class GrupoAdmin(admin.ModelAdmin):
     list_filter = ["estado", "origem"]
 
 
-admin.site.register(Selecao)
+@admin.register(Selecao)
+class SelecaoAdmin(admin.ModelAdmin):
+    list_display = ["proposta", "candidatura", "selecionada", "confirmada", "data_selecao", "data_confirmacao"]
+    list_filter = ["selecionada", "confirmada"]
