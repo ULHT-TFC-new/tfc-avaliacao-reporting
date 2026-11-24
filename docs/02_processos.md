@@ -73,15 +73,15 @@ O sistema não é um ator. A plataforma executa as regras automáticas (prazos, 
 
 | ID | Processo | Ator | Descrição |
 |---|---|---|---|
-| P-03.1 | Submeter candidatura individual | Aluno | Candidatar-se a um TFC, que fica na última posição da lista de candidaturas. É recusada se o aluno não tiver os créditos exigidos. |
+| P-03.1 | Submeter candidatura individual | Aluno | Candidatar-se a um TFC, que fica na última posição da lista de candidaturas. A candidatura é feita pelo grupo individual do aluno, criado na primeira candidatura. É recusada se o aluno não tiver os créditos exigidos. |
 | P-03.2 | Submeter candidatura em grupo | Aluno (submissor) | Candidatar-se a um TFC com um colega. O submissor identifica os dois elementos e a candidatura fica pendente até o colega a confirmar. |
 | P-03.3 | Confirmar candidatura em grupo | Aluno (colega) | O colega aceita ou recusa cada candidatura do grupo. |
 | P-03.4 | Alterar a prioridade de uma candidatura | Aluno | Mudar a posição de uma candidatura na lista de candidaturas, dentro do prazo. |
 | P-03.5 | Substituir o TFC de uma candidatura | Aluno | Trocar o TFC A pelo TFC B, mantendo a posição na lista, dentro do prazo. |
 | P-03.6 | Cancelar candidatura | Aluno | Retirar uma candidatura da lista; as seguintes sobem uma posição. |
-| P-03.7 | Selecionar candidatos | Docente (proponente), Proponente externo, Coordenação | Escolher o candidato de cada TFC quando há mais do que um. |
+| P-03.7 | Selecionar candidato | Docente (orientador ou proponente), Proponente externo | Ver os candidatos de um TFC e selecionar um, na mesma página. A seleção pode ser mudada até a coordenação a confirmar. |
 | P-03.8 | Juntar alunos num TFC | Docente (proponente ou orientador), Coordenação | O docente propõe que dois alunos façam em grupo um TFC que aceita grupos. Os alunos aceitam, a coordenação valida e o TFC é atribuído ao grupo. |
-| P-03.9 | Atribuir TFC e orientador | Coordenação | Atribuir o TFC ao aluno ou ao grupo e nomear o orientador e o coorientador. |
+| P-03.9 | Confirmar seleção e atribuir TFC | Coordenação | Confirmar o candidato selecionado e nomear o orientador e o coorientador, o que atribui o TFC e publica a atribuição. |
 | P-03.10 | Atualizar as listas de candidaturas após a atribuição | Coordenação (desencadeado por P-03.9) | Retirar o TFC atribuído das listas dos outros candidatos e subir as candidaturas seguintes. |
 | P-03.11 | Publicar atribuições | Coordenação | Publicar a lista final de TFC atribuídos e dos orientadores. |
 | P-03.12 | Registar desistência | Aluno, Docente (orientador), Coordenação | Registar a desistência de um aluno e libertar o TFC. |
@@ -382,12 +382,13 @@ Os processos de MP-04 e MP-08, a constituição do júri (P-06.4), o agendamento
 - **Fluxo:**
   1. O aluno abre o detalhe do TFC, que mostra o número de candidaturas atuais.
   2. Carrega em **Candidatar**.
-  3. A plataforma verifica os créditos e o perfil do aluno.
-  4. A plataforma regista a candidatura.
-- **Alternativa — sem créditos:** no passo 3, se o aluno não tiver os créditos mínimos, a plataforma mostra a mensagem "não reúne os créditos mínimos exigidos para se candidatar a um TFC" e regista a candidatura como Recusada (aluno, TFC, data e motivo).
+  3. Na primeira candidatura individual, a plataforma cria o grupo individual do aluno (só com ele).
+  4. A plataforma verifica os créditos e o perfil do aluno.
+  5. A plataforma regista a candidatura do grupo individual.
+- **Alternativa — sem créditos:** no passo 4, se o aluno não tiver os créditos mínimos, a plataforma mostra a mensagem "não reúne os créditos mínimos exigidos para se candidatar a um TFC" e regista a candidatura como Recusada (aluno, TFC, data e motivo).
 - **Exceções:** limite de candidaturas atingido → botão desativado, com a mensagem "retire uma candidatura de outro TFC"; TFC só para grupos → mensagem "este TFC é para grupos de 2 e não aceita candidaturas individuais"; TFC atribuído entretanto → não regista.
 - **Pós-condições:** a candidatura fica Ativa, na última posição da lista de candidaturas do aluno, com data e hora; no detalhe do TFC, o número de candidaturas aumenta um. Na alternativa, a candidatura fica Recusada, fora da lista, e aparece nos relatórios da coordenação (P-09.3).
-- **Regras:** o aluno precisa de pelo menos 90 ECTS na data de referência (cap. 4); candidata-se a 3 a 6 TFC por ordem de preferência (cap. 3 e 4), com o limite parametrizável; mesmo com pré-seleção, a candidatura é obrigatória, porque a atribuição formal é necessária para a avaliação (cap. 3).
+- **Regras:** o aluno precisa de pelo menos 90 ECTS na data de referência (cap. 4); candidata-se a 3 a 6 TFC por ordem de preferência (cap. 3 e 4), com o limite parametrizável; mesmo com pré-seleção, a candidatura é obrigatória, porque a atribuição formal é necessária para a avaliação (cap. 3); todas as candidaturas pertencem a um grupo, e a candidatura individual é a de um grupo só com o aluno, para haver uma só forma de lista de prioridades (Reunião 8, 18/11).
 
 **P-03.2 Submeter candidatura em grupo** — *Aluno (submissor)*
 - **Evento:** o aluno escolhe um TFC e pede para se candidatar com um colega.
@@ -395,11 +396,11 @@ Os processos de MP-04 e MP-08, a constituição do júri (P-06.4), o agendamento
 - **Fluxo:**
   1. O submissor abre o detalhe do TFC.
   2. Carrega em **Candidatar em grupo**.
-  3. Indica o número do colega. Nas candidaturas seguintes do grupo, o colega já vem preenchido.
+  3. Indica o número do colega. Na primeira candidatura, a plataforma cria o grupo com os dois alunos; nas seguintes, o colega já vem preenchido.
   4. A plataforma verifica os créditos e o perfil dos dois alunos, a modalidade do TFC, o limite e se já existe candidatura do grupo a esse TFC.
   5. A plataforma regista a candidatura e notifica o colega (P-03.3).
 - **Exceções:** TFC individual → mensagem "este TFC é individual e não aceita grupos"; um dos alunos sem os créditos exigidos → candidatura Recusada, como em P-03.1; o colega já está num grupo com outro aluno → não regista.
-- **Pós-condições:** a candidatura fica Pendente de confirmação, na última posição da lista de candidaturas do grupo, com data e hora; o colega vê a candidatura por confirmar; enquanto estiver pendente, a candidatura não entra na seleção.
+- **Pós-condições:** a candidatura fica Pendente de confirmação, na última posição da lista de candidaturas do grupo, com data e hora; o colega vê a candidatura por confirmar; enquanto estiver pendente, a candidatura não entra na seleção. O grupo fica ativo quando o colega confirma a primeira candidatura (P-03.3).
 - **Regras:** cada aluno só pode estar num grupo (cap. 4); o aluno que submete identifica os dois elementos do grupo e só ele cria e altera as candidaturas do grupo; o colega consulta a lista e confirma cada candidatura (Reunião 6, 04/11).
 
 **P-03.3 Confirmar candidatura em grupo** — *Aluno (colega)*
@@ -463,17 +464,17 @@ sequenceDiagram
 - **Pós-condições:** a candidatura fica Cancelada, sai da lista e fica no histórico; as seguintes sobem uma posição; se ficarem menos de 3 candidaturas, o aluno vê um aviso na lista.
 - **Regras:** num grupo, só o submissor cancela; o número mínimo de 3 candidaturas é verificado no fim da fase (cap. 3).
 
-**P-03.7 Selecionar candidatos** — *Docente (proponente), Proponente externo, Coordenação*
+**P-03.7 Selecionar candidato** — *Docente (orientador ou proponente), Proponente externo*
 - **Evento:** fim da fase de candidaturas.
-- **Pré-condições:** TFC com pelo menos um candidato com candidatura Ativa (as pendentes não entram).
+- **Pré-condições:** TFC com pelo menos um candidato com candidatura Ativa (as pendentes não entram); a seleção desse TFC ainda não foi confirmada pela coordenação.
 - **Fluxo:**
-  1. A plataforma mostra os candidatos de cada TFC com a média, as notas nas UCs do perfil, a prioridade dada ao TFC e a data da candidatura.
-  2. Se o TFC tem proponente, o proponente escolhe o candidato (pode entrevistá-los fora da plataforma). Se não tem, a plataforma ordena os candidatos pelos resultados nas UCs do perfil e, em caso de empate, pela data da candidatura.
-  3. A plataforma mostra uma simulação das atribuições, sem as gravar.
-  4. A coordenação revê, ajusta se for preciso (com justificação) e confirma.
+  1. Na lista dos seus TFC, o docente vê o número de candidaturas de cada um.
+  2. Abre um TFC e vê os candidatos, com a média, as notas nas UCs do perfil, a prioridade dada ao TFC e a data da candidatura. Se não houver proponente, a plataforma ordena os candidatos pelos resultados nas UCs do perfil e, em caso de empate, pela data da candidatura.
+  3. Carrega em **Selecionar** junto do candidato escolhido (pode entrevistar os candidatos fora da plataforma).
+- **Alternativa — mudar de ideias:** antes da confirmação, o docente pode selecionar outro candidato; a seleção anterior é desfeita.
 - **Exceções:** TFC sem candidatos → continua Disponível; aluno sem TFC no fim → atribuição pela coordenação, com justificação.
-- **Pós-condições:** cada TFC com candidatos tem um candidato selecionado e confirmado, o que desencadeia a atribuição (P-03.9); as ordenações e os ajustes ficam registados.
-- **Regras:** para um aluno com tema próprio e com candidaturas, a ordem é: (1) candidaturas a temas de docentes ou empresas, pela ordem do aluno, (2) temas de docentes ou empresas que se sobreponham ao tema próprio, (3) o tema próprio (cap. 4).
+- **Pós-condições:** o TFC tem um candidato selecionado, com quem selecionou e quando; a candidatura continua Ativa até a coordenação confirmar (P-03.9); a coordenação vê o TFC na lista de seleções por confirmar.
+- **Regras:** o orientador ou o proponente seleciona o candidato e a coordenação confirma, com botões diferentes (Reunião 8, 18/11); só há um candidato selecionado por TFC; para um aluno com tema próprio e com candidaturas, a ordem é: (1) candidaturas a temas de docentes ou empresas, pela ordem do aluno, (2) temas de docentes ou empresas que se sobreponham ao tema próprio, (3) o tema próprio (cap. 4).
 
 **P-03.8 Juntar alunos num TFC** — *Docente (proponente ou orientador), Coordenação*
 - **Evento:** o docente identifica dois alunos que podem fazer juntos um TFC (por exemplo, dois candidatos individuais ao mesmo TFC ou dois alunos sem TFC no fim da seleção).
@@ -489,16 +490,17 @@ sequenceDiagram
 - **Pós-condições:** existe um grupo com os dois alunos; as candidaturas anteriores de ambos ficam Encerradas; o TFC é atribuído ao grupo (P-03.9) sem passar pela lista de candidaturas.
 - **Regras:** os dois alunos têm de aceitar (orientador, email de 01/11); o grupo tem 2 alunos e cada aluno só pode estar num grupo (cap. 4).
 
-**P-03.9 Atribuir TFC e orientador** — *Coordenação*
-- **Evento:** seleção confirmada (P-03.7), grupo formado pelo docente (P-03.8) ou candidatura de um aluno pré-selecionado.
-- **Pré-condições:** proposta Disponível ou Pré-atribuída; aluno ou grupo sem TFC atribuído.
+**P-03.9 Confirmar seleção e atribuir TFC** — *Coordenação*
+- **Evento:** existe uma seleção por confirmar (P-03.7), um grupo formado pelo docente (P-03.8) ou uma candidatura de um aluno pré-selecionado.
+- **Pré-condições:** proposta Disponível ou Pré-atribuída; candidato selecionado (ou grupo formado pelo docente, ou aluno pré-selecionado); aluno ou grupo sem TFC atribuído.
 - **Fluxo:**
-  1. A plataforma propõe a atribuição e o orientador sugerido na proposta.
-  2. A coordenação confirma ou nomeia outro orientador e o coorientador (só docentes ativos).
-  3. A plataforma regista a atribuição e atualiza as listas dos outros candidatos (P-03.10).
+  1. A coordenação abre a lista de TFC com seleções por confirmar (vê todos os TFC, e não só os seus).
+  2. A plataforma mostra o candidato selecionado e o orientador sugerido na proposta.
+  3. A coordenação mantém ou nomeia outro orientador e o coorientador (só docentes ativos) e carrega em **Confirmar**.
+  4. A plataforma regista a atribuição e atualiza as listas dos outros candidatos (P-03.10).
 - **Exceções:** aluno pré-selecionado sem os créditos exigidos → alerta à coordenação; aluno pré-selecionado em dois TFC → decide a coordenação; orientador com mais de 5 orientações → aviso, sem bloquear.
-- **Pós-condições:** a proposta fica Atribuída e o TFC fica Em curso; a candidatura do aluno fica Contemplada e as restantes candidaturas dele ficam Encerradas (aluno já contemplado); o orientador e o coorientador ficam associados ao TFC; o aluno, o orientador e o coorientador são notificados.
-- **Regras:** cada aluno só pode ter um TFC (cap. 4); a atribuição é automática quando o aluno pré-selecionado se candidata ou quando o aluno só tem tema próprio aceite (cap. 3 e 4); o aluno pode começar o trabalho logo que o TFC lhe é atribuído, mesmo antes da lista final (cap. 5).
+- **Pós-condições:** a seleção fica confirmada, com quem confirmou e quando; a proposta fica Atribuída e o TFC fica Em curso, com os alunos do grupo; a candidatura fica Contemplada e as restantes candidaturas dos alunos do grupo ficam Encerradas (aluno já contemplado); o orientador e o coorientador ficam associados ao TFC; a atribuição fica fechada e pública; os alunos, o orientador e o coorientador são notificados.
+- **Regras:** a confirmação da coordenação é a publicação da atribuição (Reunião 8, 18/11); cada aluno só pode ter um TFC (cap. 4); a atribuição é automática quando o aluno pré-selecionado se candidata ou quando o aluno só tem tema próprio aceite (cap. 3 e 4); o aluno pode começar o trabalho logo que o TFC lhe é atribuído, mesmo antes da lista final (cap. 5).
 
 **P-03.10 Atualizar as listas de candidaturas após a atribuição** — *Coordenação (desencadeado por P-03.9)*
 - **Evento:** um TFC passa a Atribuída.
@@ -516,10 +518,13 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
+    actor D as Docente (orientador ou proponente)
     actor Co as Coordenação
     participant P as Plataforma
     actor A as Aluno contemplado
-    Co->>P: Confirmar atribuição e orientador
+    D->>P: Selecionar candidato
+    P-->>Co: Seleção por confirmar
+    Co->>P: Confirmar seleção e orientador
     P->>P: Proposta passa a Atribuída e TFC a Em curso
     P->>P: Candidatura passa a Contemplada
     P->>P: Fechar as candidaturas dos outros alunos a este TFC
@@ -660,8 +665,8 @@ sequenceDiagram
   4. A plataforma compara as classificações com as dos outros jurados.
 - **Alternativa — diferença entre jurados:** se a diferença num critério for superior ao limite definido (P-06.1), a plataforma pede uma justificação, e a avaliação só fica submetida depois de o jurado a escrever.
 - **Exceções:** prazo de avaliação ultrapassado → o formulário fica só para consulta.
-- **Pós-condições:** a avaliação fica submetida, associada ao jurado, ao TFC, ao momento e à versão do modelo; até ao prazo de avaliação, o jurado pode alterá-la; depois do prazo, fica apenas para consulta.
-- **Regras:** justificação obrigatória quando a diferença entre jurados é superior a 2 níveis (cap. 6); o júri das avaliações intercalares é cego (cap. 5); depois do prazo não é possível submeter nem alterar avaliações, mas estas continuam disponíveis para consulta (Reunião 6, 04/11).
+- **Pós-condições:** a avaliação fica submetida, associada ao jurado e à entrega (que identifica o TFC e o momento) e à versão do modelo; até ao prazo de avaliação, o jurado pode alterá-la; depois do prazo, fica apenas para consulta.
+- **Regras:** a avaliação avalia a entrega, e não o TFC, para o mesmo docente poder avaliar o TFC em vários momentos; nos momentos sem ficheiros (por exemplo, uma apresentação) existe na mesma uma entrega, como registo da participação (Reunião 8, 18/11); justificação obrigatória quando a diferença entre jurados é superior a 2 níveis (cap. 6); o júri das avaliações intercalares é cego (cap. 5); depois do prazo não é possível submeter nem alterar avaliações, mas estas continuam disponíveis para consulta (Reunião 6, 04/11).
 
 **P-06.7 Publicar resultados intercalares** — *Coordenação*
 - **Evento:** data de publicação dos resultados de uma avaliação intercalar (P-06.1).
