@@ -83,6 +83,9 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 18/11/2026 | Integração do frontend do DEISI2256 com a API do backend | Lista de propostas e filtros (pesquisa, curso, tecnologia e orientador) a partir da API |
 | 18/11/2026 | Envio ao orientador, por email, do modelo de dados e do backend para revisão | Resposta do orientador: "Muito bom! Relatório antes da sessão é 'muito à frente'" |
 | 18/11/2026 | Reunião com o orientador | Ver Reunião 8 |
+| 19/11/2026 | Envio ao orientador do link do commit com as notas da Reunião 8 | — |
+| 23/11/2026 | Inscrição nas apresentações | A apresentação é feita em conjunto com o DEISI2256 |
+| 24/11/2026 | Alterações ao modelo de dados e ao backend com as indicações da Reunião 8 | Todas as candidaturas pertencem a um grupo (a individual é um grupo só com o aluno); seleção pelo orientador ou proponente com confirmação pela coordenação; a avaliação passa a avaliar a entrega; lista de processos atualizada; 27 testes automáticos |
 
 ---
 
@@ -416,10 +419,10 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 
 #### Próximos passos
 - [ ] Ver a apresentação da plataforma de publicação e ajustar a arquitetura (incluindo o alojamento da base de dados).
-- [ ] Ligar a avaliação à entrega, no modelo de dados e no backend.
-- [ ] Decidir se todas as candidaturas passam a ser de um grupo (candidatura individual como grupo de um aluno).
+- [x] Ligar a avaliação à entrega, no modelo de dados e no backend (24/11).
+- [x] Decidir se todas as candidaturas passam a ser de um grupo (candidatura individual como grupo de um aluno): sim, como preferiu o orientador (24/11).
 - [ ] Combinar com os colegas um modelo de dados único.
-- [ ] Atualizar a seleção e a atribuição nos processos: selecionar (orientador ou proponente) e confirmar e publicar (coordenação).
+- [x] Atualizar a seleção e a atribuição nos processos: selecionar (orientador ou proponente) e confirmar e publicar (coordenação) (24/11, também no backend).
 - [ ] Fazer os mockups das páginas principais (DEISI2256).
 - [ ] Fazer os casos de uso e as user stories separados, com os critérios de aceitação escritos como casos de teste.
 - [ ] Aplicar o feedback do orientador ao trabalho enviado, quando chegar.
