@@ -41,8 +41,8 @@ classDiagram
     Utilizador "1" -- "0..1" Aluno
     Utilizador "1" -- "0..1" Docente
     Proposta "1" -- "0..*" Candidatura
-    Aluno "1" -- "0..*" Candidatura
-    Grupo "0..1" -- "0..*" Candidatura
+    Aluno "1" -- "0..*" Grupo
+    Grupo "1" -- "0..*" Candidatura
     Proposta "1" -- "0..1" TFC
     TFC "1" -- "1..2" TFCAluno
     Aluno "1" -- "0..*" TFCAluno
@@ -50,7 +50,7 @@ classDiagram
     ModeloAvaliacao "1" -- "1..*" MomentoAvaliacao
     TFC "1" -- "0..*" Entrega
     MomentoAvaliacao "1" -- "0..*" Entrega
-    TFC "1" -- "0..*" Avaliacao
+    Entrega "1" -- "0..*" Avaliacao
     Docente "1" -- "0..*" Avaliacao : jurado
     TFCAluno "1" -- "0..*" NotaMomento
     TFCAluno "1" -- "0..*" ResultadoFinal
@@ -225,17 +225,19 @@ classDiagram
     class Selecao {
         int posicao
         numeric pontuacao
+        bool selecionada
+        timestamp data_selecao
         text justificacao_ajuste
         bool confirmada
+        timestamp data_confirmacao
     }
 
     AnoLetivo "1" -- "0..*" Grupo
     Aluno "1" -- "0..*" Grupo : submissor
-    Aluno "1" -- "0..*" Grupo : colega
+    Aluno "0..1" -- "0..*" Grupo : colega
     Docente "0..1" -- "0..*" Grupo : propõe junção
     Proposta "1" -- "0..*" Candidatura
-    Aluno "1" -- "0..*" Candidatura : submissor
-    Grupo "0..1" -- "0..*" Candidatura
+    Grupo "1" -- "0..*" Candidatura
     Candidatura "0..1" -- "0..1" Candidatura : substitui
     Proposta "1" -- "0..*" Selecao
     Candidatura "1" -- "0..1" Selecao
@@ -243,9 +245,9 @@ classDiagram
 
 | Classe | Atributos principais | Regras |
 |---|---|---|
-| Grupo | ano letivo, submissor, colega, origem (candidatura ou junção pelo docente), estado, docente que propôs a junção, aceitação de cada aluno, quem validou | Um aluno só pode estar num grupo ativo por ano (cap. 4). Na junção, os dois alunos aceitam e a coordenação valida (P-03.8). |
-| Candidatura | ano letivo, proposta, aluno (submissor ou candidato individual), grupo (vazio se individual), prioridade, estado, motivo do fim, candidatura que substitui, datas | Ver as regras R1 a R6 da secção 5. A prioridade só existe enquanto a candidatura está na lista (pendente ou ativa). |
-| Selecao | proposta, candidatura, posição, pontuação, justificação do ajuste, confirmada, quem confirmou | Guarda a ordenação e os ajustes da coordenação (P-03.7). |
+| Grupo | ano letivo, submissor, colega (vazio numa candidatura individual), origem (candidatura ou junção pelo docente), estado, docente que propôs a junção, aceitação de cada aluno, quem validou | É sempre o grupo que se candidata: uma candidatura individual é um grupo só com o submissor (Reunião 8). O grupo individual fica ativo ao ser criado; o grupo de dois fica ativo quando o colega confirma a primeira candidatura. Um aluno só tem um grupo individual e só está num grupo de dois ativo por ano (R4, cap. 4). Na junção, os dois alunos aceitam e a coordenação valida (P-03.8). |
+| Candidatura | ano letivo, proposta, grupo, prioridade, estado, motivo do fim, candidatura que substitui, datas | A lista de prioridades é sempre a do grupo. Ver as regras R1, R2, R8 e R9 da secção 5. A prioridade só existe enquanto a candidatura está na lista (pendente ou ativa). |
+| Selecao | proposta, candidatura, posição, pontuação, selecionada (por quem e quando), justificação do ajuste, confirmada (por quem e quando) | O orientador ou o proponente seleciona o candidato e a coordenação confirma, o que atribui o TFC e publica a atribuição (Reunião 8; P-03.7 e P-03.9). Só há um candidato selecionado por proposta. |
 
 ### 3.4 TFC, acompanhamento e entregas (MP-03 a MP-05)
 
@@ -395,8 +397,7 @@ classDiagram
     MomentoAvaliacao "1" -- "0..*" MembroJuri
     Docente "1" -- "0..*" MembroJuri
     TFC "1" -- "0..*" Defesa
-    TFC "1" -- "0..*" Avaliacao
-    MomentoAvaliacao "1" -- "0..*" Avaliacao
+    Entrega "1" -- "0..*" Avaliacao
     Docente "1" -- "0..*" Avaliacao : jurado
     Avaliacao "1" -- "1..*" ClassificacaoCriterio
     Criterio "1" -- "0..*" ClassificacaoCriterio
@@ -415,7 +416,7 @@ classDiagram
 | Criterio | momento, nome, descrição, peso, ordem | Soma dos pesos de um momento = 100% (P-06.2). |
 | MembroJuri | TFC, momento, docente | O orientador não pode ser jurado nas avaliações intercalares (cap. 5). |
 | Defesa | TFC, momento, data e hora, local | Publicada com pelo menos 48 h de antecedência (P-06.5). |
-| Avaliacao | TFC, momento, jurado, estado (rascunho ou submetida), apreciação (texto com Markdown), datas | Uma avaliação por TFC, momento e jurado. O rascunho é guardado à medida que o jurado escreve, para o texto não se perder quando a sessão expira (pedido no inquérito). Bloqueada depois do prazo de avaliação (R10). |
+| Avaliacao | entrega, jurado, estado (rascunho ou submetida), apreciação (texto com Markdown), datas | A avaliação avalia a entrega, que identifica o TFC e o momento (e, com ele, a época), por isso o mesmo docente avalia o TFC uma vez em cada momento (Reunião 8). Nos momentos sem ficheiros (por exemplo, uma apresentação), a entrega existe na mesma, como registo da participação. Uma avaliação por entrega e jurado. O rascunho é guardado à medida que o jurado escreve, para o texto não se perder quando a sessão expira (pedido no inquérito). Bloqueada depois do prazo de avaliação (R10). |
 | ClassificacaoCriterio | avaliação, critério, nível, justificação da discrepância | Nível entre 1 e o número de níveis da escala. Justificação obrigatória acima do limiar (R11). |
 | Seminario | momento (do tipo presenças), título, data | Cada sessão de seminário de um momento de presença obrigatória. |
 | Presenca | seminário, aluno, presente, quem registou | P-08.1. |
@@ -469,20 +470,20 @@ A base de dados garante estas regras, mesmo que o pedido não venha do backend (
 
 | # | Regra | Implementação | Processo |
 |---|---|---|---|
-| R1 | Um aluno não se candidata duas vezes ao mesmo TFC | Índice único parcial em Candidatura (proposta, aluno) para os estados pendente e ativa | P-03.1, P-03.2 |
-| R2 | A lista de candidaturas não tem prioridades repetidas | Índice único parcial em Candidatura (aluno ou grupo, prioridade) para os estados pendente e ativa | P-03.4 |
+| R1 | Um aluno não se candidata duas vezes ao mesmo TFC | Índice único parcial em Candidatura (proposta, grupo) para os estados pendente e ativa; entre grupos diferentes do mesmo aluno, verificado pelo trigger R9 | P-03.1, P-03.2 |
+| R2 | A lista de candidaturas não tem prioridades repetidas | Índice único parcial em Candidatura (grupo, prioridade) para os estados pendente e ativa | P-03.4 |
 | R3 | Um aluno só tem um TFC ativo por ano | Índice único parcial em TFCAluno (aluno, ano letivo) quando ativo | P-03.9 |
-| R4 | Um aluno só está num grupo ativo por ano | Índice único parcial em Grupo, para o submissor e para o colega | P-03.2, P-03.8 |
+| R4 | Um aluno só tem um grupo individual e só está num grupo de dois ativo por ano | Índice único parcial em Grupo (ano, submissor) para os grupos individuais; trigger em Grupo para os grupos de dois (o aluno pode ser submissor ou colega) | P-03.2, P-03.8 |
 | R5 | Níveis, pesos e notas dentro dos limites | Restrições CHECK (por exemplo, nível entre 1 e 10, peso entre 0 e 100, nota entre 0 e 20) | P-06.1, P-06.6 |
-| R6 | Uma entrega por TFC e momento; uma avaliação por TFC, momento e jurado | Restrições UNIQUE | P-05.3, P-06.6 |
+| R6 | Uma entrega por TFC e momento; uma avaliação por entrega e jurado; um só candidato selecionado por proposta | Restrições UNIQUE | P-03.7, P-05.3, P-06.6 |
 
 ### 5.2 Triggers e funções
 
 | # | Regra | Implementação | Processo |
 |---|---|---|---|
-| R7 | **Atribuir um TFC** desencadeia as restantes operações: a proposta passa a Atribuída, o TFC é criado no estado Em curso com os seus alunos, a candidatura passa a Contemplada, as outras candidaturas do aluno são encerradas e as candidaturas dos outros alunos a esse TFC também (R8) | Função `atribuir_tfc(candidatura, orientador, coorientador)`, numa só transação | P-03.9, P-03.10 |
-| R8 | **Renumerar a lista** quando uma candidatura sai (cancelada, encerrada, recusada pelo colega ou contemplada): as seguintes sobem uma posição | Trigger AFTER UPDATE do estado da candidatura | P-03.3, P-03.6, P-03.10 |
-| R9 | **Validar uma candidatura nova:** fase de candidaturas aberta, modalidade compatível, limite de candidaturas, créditos do aluno (e do colega). Sem créditos → estado Recusada; caso contrário fica na última posição | Trigger BEFORE INSERT da candidatura | P-03.1, P-03.2 |
+| R7 | **Atribuir um TFC** desencadeia as restantes operações: a proposta passa a Atribuída, o TFC é criado no estado Em curso com os seus alunos, a candidatura passa a Contemplada, as outras candidaturas dos alunos do grupo são encerradas e as candidaturas dos outros alunos a esse TFC também (R8). A **seleção** é feita pelo orientador ou proponente e a **confirmação** pela coordenação, que chama a atribuição | Funções `selecionar_candidato(candidatura, utilizador)`, `confirmar_selecao(seleção, orientador, coorientador, utilizador)` e `atribuir_tfc(candidatura, orientador, coorientador)`, numa só transação | P-03.7, P-03.9, P-03.10 |
+| R8 | **Renumerar a lista do grupo** quando uma candidatura sai (cancelada, encerrada, recusada pelo colega ou contemplada): as seguintes sobem uma posição. Uma candidatura que volta à lista fica na última posição. Quando o colega confirma a primeira candidatura, o grupo fica ativo | Triggers BEFORE e AFTER UPDATE do estado da candidatura | P-03.3, P-03.6, P-03.10 |
+| R9 | **Validar uma candidatura nova:** fase de candidaturas aberta, grupo não dissolvido, modalidade compatível (grupo individual só em TFC individuais ou individual ou em grupo; grupo de dois só em TFC em grupo ou individual ou em grupo), nenhum aluno do grupo já candidato a esse TFC, limite de candidaturas do grupo, créditos de todos os alunos do grupo. Individual → Ativa; em grupo → Pendente de confirmação. Sem créditos → estado Recusada; caso contrário fica na última posição | Trigger BEFORE INSERT da candidatura | P-03.1, P-03.2 |
 | R10 | **Fechar no prazo:** depois do prazo de entrega, a entrega não pode ser alterada; depois do prazo de avaliação, a avaliação também não. Continuam disponíveis para consulta | Trigger BEFORE UPDATE em Entrega e em Avaliacao | P-05.3, P-06.6 |
 | R11 | **Discrepância entre jurados:** ao submeter, se a diferença para outro jurado num critério for superior ao limiar, a justificação é obrigatória | Trigger BEFORE UPDATE da avaliação (passagem a Submetida) | P-06.6 |
 | R12 | **Pesos e recálculo:** ao ativar o modelo, a soma dos pesos de cada destino tem de ser 100%. Acrescentar um outro momento recalcula os restantes, mantendo a proporção | Função `recalcular_pesos(momento)` e trigger na ativação do modelo | P-06.1, P-06.3 |
@@ -490,7 +491,7 @@ A base de dados garante estas regras, mesmo que o pedido não venha do backend (
 | R14 | **Histórico:** cada mudança de estado, prioridade, nota ou dado publicado é registada em Historico, com o evento e o utilizador | Trigger AFTER UPDATE genérico nas tabelas principais | Todos |
 | R15 | **Fechar o ano letivo:** arquiva os TFC e as propostas não atribuídas e passa o ano a só leitura | Função `fechar_ano_letivo(ano)` e trigger que bloqueia alterações em anos fechados | P-01.4 |
 
-**Estado da implementação (17/11):** as restrições R1 a R6 e as regras R7, R8 e R9 estão implementadas e testadas no backend; R14 está implementada só para as candidaturas. As restantes (R10 a R13 e R15) ficam para as próximas iterações.
+**Estado da implementação (24/11):** as restrições R1 a R6 e as regras R4, R7, R8 e R9 (incluindo a seleção e a confirmação) estão implementadas e testadas no backend; R14 está implementada só para as candidaturas. As restantes (R10 a R13 e R15) ficam para as próximas iterações.
 
 ## 6. Vistas para o reporting
 
@@ -535,7 +536,7 @@ Fica no backend (Django) o que não é sobre a consistência dos dados:
 | # | Questão | Classes |
 |---|---|---|
 | 1 | Num grupo, as notas são sempre iguais para os dois alunos ou podem ser diferentes (por exemplo, na defesa final)? O modelo guarda uma nota por aluno, que serve para os dois casos. | NotaMomento, ResultadoFinal |
-| 2 | As candidaturas individuais e em grupo de um aluno formam uma única lista de prioridades? Depende da questão 3 de [02_processos.md](02_processos.md). | Candidatura |
+| 2 | Um aluno pode ter ao mesmo tempo candidaturas individuais (no seu grupo individual) e candidaturas num grupo de dois? O modelo permite-o, com uma lista por grupo; se não for permitido, basta acrescentar essa verificação ao trigger R4. Depende da questão 3 de [02_processos.md](02_processos.md). | Grupo, Candidatura |
 | 3 | Como chegam à base de dados os resultados da verificação do DEISI2258: escrita direta, ação a pedido no frontend ou tarefa do servidor em batch? A combinar com o DEISI2258. | VerificacaoAutomatica |
 | 4 | Como entra a majoração do orientador no cálculo da nota? O modelo guarda o valor (inicialmente 0), mas a fórmula ainda não está definida. | ModeloAvaliacao, NotaMomento |
 | 5 | O MP-08 passa a definir os modelos do modelo base de avaliação? O atributo `tipo` de MomentoAvaliacao já prevê os quatro modelos. | MomentoAvaliacao |
