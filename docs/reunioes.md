@@ -86,6 +86,8 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 19/11/2026 | Envio ao orientador do link do commit com as notas da Reunião 8 | — |
 | 23/11/2026 | Inscrição nas apresentações | A apresentação é feita em conjunto com o DEISI2256 |
 | 24/11/2026 | Alterações ao modelo de dados e ao backend com as indicações da Reunião 8 | Todas as candidaturas pertencem a um grupo (a individual é um grupo só com o aluno); seleção pelo orientador ou proponente com confirmação pela coordenação; a avaliação passa a avaliar a entrega; lista de processos atualizada; 27 testes automáticos |
+| 25/11/2026 | Feedback do orientador, por email, sobre o modelo de dados | Modelos por área aprovados como abordagem; pedido o modelo global atualizado e a separação entre o modelo de classes e o E-R; aplicar a mesma organização por área aos casos de uso e às atividades; pedido o ponto de situação dos mockups e do relatório |
+| 25/11/2026 | Revisão do modelo de dados com as indicações do orientador | Modelo de classes UML global e por área (tipos UML, sem chaves, enumerações e classes de associação); E-R completo com chaves e restrições, gerado a partir da base de dados; regras de transformação das classes para o E-R; scripts de geração na pasta `ferramentas/` |
 
 ---
 
