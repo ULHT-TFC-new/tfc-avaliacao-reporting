@@ -236,7 +236,7 @@ erDiagram
     ALUNO_UC {
         id BIGINT PK "NN"
         estado VARCHAR(10) "NN"
-        nota NUMERIC(4,2) "NULL"
+        nota NUMERIC "NULL"
         aluno_id BIGINT FK "NN"
         uc_id BIGINT FK "NN"
     }
@@ -331,7 +331,7 @@ erDiagram
     SELECAO {
         id BIGINT PK "NN"
         posicao SMALLINT "NULL"
-        pontuacao NUMERIC(5,2) "NULL"
+        pontuacao NUMERIC "NULL"
         justificacao_ajuste TEXT "NN"
         confirmada BOOL "NN"
         candidatura_id BIGINT FK,UK "NN"
@@ -417,7 +417,7 @@ erDiagram
         versao SMALLINT "NN"
         niveis_escala SMALLINT "NN"
         limiar_discrepancia SMALLINT "NN"
-        majoracao_orientador NUMERIC(4,2) "NN"
+        majoracao_orientador NUMERIC "NN"
         ativo BOOL "NN"
         data_criacao TIMESTAMPTZ "NN"
         ano_letivo_id BIGINT FK "NN"
@@ -428,7 +428,7 @@ erDiagram
         tipo VARCHAR(15) "NN"
         mecanismo VARCHAR(15) "NN"
         com_nota BOOL "NN"
-        peso NUMERIC(5,2) "NN"
+        peso NUMERIC "NN"
         epoca SMALLINT "NULL"
         requer_entrega BOOL "NN"
         prazo_entrega TIMESTAMPTZ "NULL"
@@ -442,7 +442,7 @@ erDiagram
         id BIGINT PK "NN"
         nome VARCHAR(150) "NN"
         descricao TEXT "NN"
-        peso NUMERIC(5,2) "NN"
+        peso NUMERIC "NN"
         ordem SMALLINT "NN"
         momento_id BIGINT FK "NN"
     }
@@ -492,7 +492,7 @@ erDiagram
     }
     NOTA_MOMENTO {
         id BIGINT PK "NN"
-        valor NUMERIC(4,2) "NN"
+        valor NUMERIC "NN"
         origem VARCHAR(10) "NN"
         estado VARCHAR(10) "NN"
         data_publicacao TIMESTAMPTZ "NULL"
@@ -505,7 +505,7 @@ erDiagram
         epoca SMALLINT "NN"
         nota_final SMALLINT "NN"
         situacao VARCHAR(10) "NN"
-        percentagem_presencas NUMERIC(5,2) "NULL"
+        percentagem_presencas NUMERIC "NULL"
         estado VARCHAR(10) "NN"
         data_publicacao TIMESTAMPTZ "NULL"
         tfc_aluno_id BIGINT FK "NN"
@@ -662,7 +662,7 @@ O E-R obtém-se do modelo de classes aplicando sempre as mesmas regras de transf
 | Modelo de classes | E-R | Exemplos |
 |---|---|---|
 | Classe | Entidade com chave primária técnica `id BIGINT` | `Proposta` → `PROPOSTA` |
-| Atributo `String`, `Integer`, `Decimal`, `Boolean`, `Date`, `DateTime` | `VARCHAR(n)` ou `TEXT`, `SMALLINT`, `NUMERIC(p,s)`, `BOOL`, `DATE`, `TIMESTAMPTZ` | `peso : Decimal` → `peso NUMERIC(5,2)` |
+| Atributo `String`, `Integer`, `Decimal`, `Boolean`, `Date`, `DateTime` | `VARCHAR(n)` ou `TEXT`, `SMALLINT`, `NUMERIC`, `BOOL`, `DATE`, `TIMESTAMPTZ` | `peso : Decimal` → `peso NUMERIC` (no PostgreSQL, `NUMERIC(5,2)`; o diagrama omite a precisão porque o Mermaid do GitHub não aceita a vírgula) |
 | Atributo com multiplicidade `[0..1]` | Coluna `NULL`; os restantes são `NN` | `data_fecho : DateTime [0..1]` |
 | Enumeração | `VARCHAR` com os valores da enumeração | `estado : EstadoProposta` → `estado VARCHAR(25)` |
 | Associação 1 — 0..* | `FK` no lado "muitos": `NN` se o outro lado é `1`, `NULL` se é `0..1` | `Grupo 1 — 0..* Candidatura` → `CANDIDATURA.grupo_id` |

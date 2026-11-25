@@ -23,10 +23,11 @@ NOMES = {
 OMITIR = {"configuracao_utilizador": {"first_name", "last_name", "is_staff", "is_superuser", "date_joined"}}
 
 def tipo(c):
+    # NUMERIC sem (p,s): a vírgula dentro do tipo não é aceite pelo Mermaid usado no GitHub
     _, t, n, p, s, *_ = c
     return {"bigint":"BIGINT","smallint":"SMALLINT","integer":"INTEGER","text":"TEXT","boolean":"BOOL",
             "date":"DATE","jsonb":"JSONB","timestamp with time zone":"TIMESTAMPTZ"}.get(t) or \
-           (f"VARCHAR({n})" if t=="character varying" else f"NUMERIC({p},{s})" if t=="numeric" else t.upper())
+           (f"VARCHAR({n})" if t=="character varying" else "NUMERIC" if t=="numeric" else t.upper())
 
 linhas, rels, restricoes = ["erDiagram"], [], []
 for t in NOMES:
