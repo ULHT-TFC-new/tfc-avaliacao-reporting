@@ -36,6 +36,7 @@ Os três projetos partilham a mesma base de dados, mantendo resultados distintos
 | [02 — Processos](docs/02_processos.md) | Macro-processos, processos e máquinas de estados da plataforma |
 | [03 — Modelo de dados](docs/03_modelo_de_dados.md) | Diagrama de classes, regras na base de dados e vistas de reporting |
 | [04 — Utilização de IA](docs/04_utilizacao_de_ia.md) | Como foi usada a IA generativa no trabalho |
+| [Ferramentas](ferramentas/README.md) | Scripts que geram os diagramas do modelo de dados e os gráficos da análise |
 
 ## Arquitetura
 
