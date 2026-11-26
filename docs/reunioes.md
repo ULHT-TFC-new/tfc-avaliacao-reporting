@@ -15,10 +15,10 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 05/10 – 20/10 | Finalizar o inquérito com os outros grupos e validá-lo com o orientador | Concluído |
 | 21/10 – 06/11 | Divulgar o inquérito e recolher respostas | Concluído (60 respostas) |
 | 28/10 – 31/10 | Rever a lista de processos com as indicações da Reunião 5 | Concluído (questões em aberto por esclarecer) |
-| 28/10 – 04/12 | Mockups das páginas principais (candidaturas, seleção e avaliações) | Em curso (DEISI2256) |
+| 28/10 – 04/12 | Mockups das páginas principais (candidaturas, seleção e avaliações) | Em curso (DEISI2256; apresentados na Reunião 9, com ajustes a fazer) |
 | 04/11 – 13/11 | Rever a lista de processos com as indicações da Reunião 6 | Concluído (ajustes da Reunião 7 em curso) |
 | 09/11 – 15/11 | Análise exploratória dos resultados | Concluído |
-| 09/11 – 29/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Em curso (modelo de dados feito; use cases e user stories por fazer) |
+| 09/11 – 29/11 | Levantamento de requisitos, use cases, user stories e modelo de dados | Em curso (modelo de dados feito; casos de uso feitos pelo DEISI2256, a rever com as Reuniões 8 e 9; user stories por fazer) |
 | 11/11 – 29/11 | Proposta de arquitetura (frontend, backend e integração com o GitHub) e primeiro "Hello World" | Em curso (backend em Django; integração com o frontend feita; a ajustar à plataforma de publicação) |
 | 16/11 – 29/11 | Configuração do ambiente (contentores Docker) | Concluído (base de dados e backend) |
 | 11/11 – 06/12 | Redação do relatório da 1ª entrega e gravação do vídeo (máx. 2 min) | Por iniciar |
@@ -88,6 +88,7 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 | 24/11/2026 | Alterações ao modelo de dados e ao backend com as indicações da Reunião 8 | Todas as candidaturas pertencem a um grupo (a individual é um grupo só com o aluno); seleção pelo orientador ou proponente com confirmação pela coordenação; a avaliação passa a avaliar a entrega; lista de processos atualizada; 27 testes automáticos |
 | 25/11/2026 | Feedback do orientador, por email, sobre o modelo de dados | Modelos por área aprovados como abordagem; pedido o modelo global atualizado e a separação entre o modelo de classes e o E-R; aplicar a mesma organização por área aos casos de uso e às atividades; pedido o ponto de situação dos mockups e do relatório |
 | 25/11/2026 | Revisão do modelo de dados com as indicações do orientador | Modelo de classes UML global e por área (tipos UML, sem chaves, enumerações e classes de associação); E-R completo com chaves e restrições, gerado a partir da base de dados; regras de transformação das classes para o E-R; scripts de geração na pasta `ferramentas/` |
+| 25/11/2026 | Reunião com o orientador | Ver Reunião 9 |
 
 ---
 
@@ -425,6 +426,59 @@ Planeamento até à 1ª entrega intercalar. Será revisto após cada reunião co
 - [x] Decidir se todas as candidaturas passam a ser de um grupo (candidatura individual como grupo de um aluno): sim, como preferiu o orientador (24/11).
 - [ ] Combinar com os colegas um modelo de dados único.
 - [x] Atualizar a seleção e a atribuição nos processos: selecionar (orientador ou proponente) e confirmar e publicar (coordenação) (24/11, também no backend).
-- [ ] Fazer os mockups das páginas principais (DEISI2256).
+- [x] Fazer os mockups das páginas principais (DEISI2256; apresentados na Reunião 9).
 - [ ] Fazer os casos de uso e as user stories separados, com os critérios de aceitação escritos como casos de teste.
-- [ ] Aplicar o feedback do orientador ao trabalho enviado, quando chegar.
+- [x] Aplicar o feedback do orientador ao trabalho enviado, quando chegar (25/11: modelo de classes global e por área, E-R completo e regras de transformação).
+
+---
+
+### Reunião 9 — 25/11/2026
+
+**Tipo:** Reunião com o orientador
+**Participantes:** Prof. Luís Gomes (orientador), Tomás Cruz (DEISI2257), o aluno do TFC DEISI2256 e os alunos do TFC DEISI2258.
+
+#### Pontos discutidos
+
+**Integração com o módulo de verificação (DEISI2258)**
+- O DEISI2258 vai definir primeiro as interfaces (assinaturas das APIs e integração com o frontend e o backend), sem código, para o DEISI2256 e o DEISI2257 as incluírem nos casos de uso.
+- Se a verificação guardar os resultados, há duas hipóteses: escrita direta na base de dados ou a API devolver a estrutura dos dados para a plataforma os guardar (mais simples). O modelo de dados já guarda os detalhes da verificação automática em `JSONB`.
+
+**Mockups (DEISI2256)**
+- Mockups estáticos em HTML e CSS, divididos em coordenação, docente e aluno. Foram mostradas a lista com filtros, a mudança de tema (claro e escuro), as candidaturas com a lista de prioridades e a candidatura em grupo, com a aceitação pelo colega.
+- **Nomenclatura:** a **proposta** é a formulação de algo que pode vir a ser um TFC; o **tema** é uma proposta aceite; o **TFC** é um tema atribuído (proposta → tema → TFC). O que os alunos consultam e a que se candidatam são temas, não propostas.
+- Separadores do aluno: "Propostas" passa a "Lista de temas" (ou "TFC disponíveis"); "Candidaturas e grupo" passa a "Candidaturas"; "Vista do colega" sai, e os convites dos colegas passam para a lista de candidaturas, com uma etiqueta própria ("proposta de colega"), o inverso de "à espera do colega"; o separador "Propostas" passa a ter os temas propostos pelo próprio aluno.
+- Na candidatura individual não deve ser possível escolher um colega de grupo.
+- Falta o mockup da proposta de tema por um grupo de alunos.
+
+**Grupos**
+- Um aluno pode fazer parte de mais do que um grupo.
+- Quando um aluno fica com um tema num grupo, as candidaturas dos outros grupos de que faz parte não são excluídas: ficam pendentes, com a indicação de que o outro elemento já tem trabalho e de que a candidatura tem de passar a individual ou ter outro colega. Este caso tem de ser testado.
+
+**Testes**
+- Os testes estão corretos e bem feitos, embora faltem alguns casos.
+
+**Modelo de dados (DEISI2257)**
+- O modelo de classes global e o E-R completo já foram feitos com as indicações do orientador.
+- A abordagem (modelo global separado por macro-processos) é excelente: os módulos funcionam quase como aplicações autónomas, com as tabelas de que cada um precisa, por isso a base de dados pode ser feita de forma cumulativa, módulo a módulo.
+- **Relatório:** o último capítulo é o planeamento, com a ordem de desenvolvimento dos módulos. Basta identificar os requisitos e os casos de uso de cada módulo pelo código, porque já estão descritos antes.
+- **Falta a orquestração:** descrever, nos fluxos, como as classes trabalham umas com as outras e onde cada módulo encaixa nos outros.
+- Os modelos têm de ser validados pelo aluno: confirmar que o E-R traduz adequadamente o modelo de classes.
+
+**Prazos**
+- A 1ª entrega intercalar é a 13/12 (domingo): faltam cerca de duas semanas e meia.
+
+#### Decisões
+- Nomenclatura: proposta → tema → TFC.
+- Um aluno pode pertencer a mais do que um grupo; quando fica com um TFC, as candidaturas dos seus outros grupos ficam pendentes, para passarem a individuais ou terem outro colega.
+- As interfaces do módulo de verificação (DEISI2258) são incluídas nos casos de uso quando estiverem definidas.
+- O relatório termina com o planeamento, com a prioridade dos módulos.
+
+#### Próximos passos
+- [ ] Aplicar a nomenclatura proposta → tema → TFC aos processos, ao modelo de dados e à API.
+- [ ] Rever a regra dos grupos no modelo de dados, nos processos e no backend: um aluno pode estar em mais do que um grupo, e as candidaturas dos outros grupos ficam pendentes quando um dos alunos fica com um TFC (com testes).
+- [ ] Descrever a orquestração: como as classes e os módulos trabalham uns com os outros nos fluxos.
+- [ ] Validar a tradução do modelo de classes para o E-R.
+- [ ] Incluir nos casos de uso as chamadas ao módulo de verificação, quando o DEISI2258 definir as interfaces.
+- [ ] Rever os casos de uso (`05_casos_de_uso.md`, do DEISI2256) com as decisões das Reuniões 8 e 9 e organizá-los pelas áreas do modelo de dados; fazer as user stories.
+- [ ] Redigir o relatório da 1ª entrega, terminando com o planeamento por módulos.
+- [ ] Ajustar os mockups (nomes dos separadores, convites na lista de candidaturas, propostas do aluno) e fazer o da proposta de tema por um grupo (DEISI2256).
